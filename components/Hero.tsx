@@ -22,18 +22,11 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
         style={{ y: yBg }}
         className="absolute inset-0 w-full h-[120%] -top-[10%]"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <img
+          src="images/hero-bg.avif"
+          alt="Modern Law Firm Architecture"
           className="w-full h-full object-cover"
-          poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-        >
-          {/* Using a stock video of modern corporate/legal architecture */}
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-time-lapse-of-corporate-buildings-4545-large.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        />
 
         {/* Overlays for legibility and brand color consistency */}
         <div className="absolute inset-0 bg-primary/80 mix-blend-multiply"></div>

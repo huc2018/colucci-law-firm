@@ -114,7 +114,8 @@ export const content: Record<"en" | "zh", Content> = {
       ],
     },
     whyUs: {
-      title: "Why Choose Joseph C. Colucci, Esq.?",
+      titlePrefix: "为什么选择",
+      titleName: "Joseph C. Colucci, Esq.?",
       items: {
         experience: {
           title: "Senior Experience",
@@ -159,6 +160,12 @@ export const content: Record<"en" | "zh", Content> = {
     },
     footer: {
       copyright: "© 2025 Colucci Law Firm, P.C. All Rights Reserved.",
+      description:
+        "Professional Legal Services in New Jersey. Committed to protecting your rights with integrity and experience.",
+      quickLinks: "Quick Links",
+      contactInfo: "Contact Info",
+      disclaimer:
+        "Disclaimer: The information provided on this website is for general informational purposes only and does not constitute legal advice. No attorney-client relationship is formed by reading this website or contacting us. Please do not send confidential information until an attorney-client relationship has been explicitly established.",
     },
   },
   zh: {
@@ -238,7 +245,8 @@ export const content: Record<"en" | "zh", Content> = {
       tags: ["律师亲自主把关", "清晰沟通", "结果导向"],
     },
     whyUs: {
-      title: "为什么选择 Joseph C. Colucci, Esq.?",
+      titlePrefix: "为什么选择",
+      titleName: "Joseph C. Colucci, Esq.?",
       items: {
         experience: {
           title: "资深经验",
@@ -283,6 +291,12 @@ export const content: Record<"en" | "zh", Content> = {
     },
     footer: {
       copyright: "© 2025 柯奇律师事务所 Colucci Law Firm, P.C. 版权所有",
+      description:
+        "新泽西专业法律服务。我们致力于以诚信和经验捍卫您的合法权益。",
+      quickLinks: "快速导航",
+      contactInfo: "联系方式",
+      disclaimer:
+        "免责声明：本网站提供的信息仅供一般参考，不构成法律建议。阅读本网站或联系柯奇律师事务所并不建立律师-客户关系。在明确建立律师-客户关系之前，请勿发送任何保密信息。",
     },
   },
 };

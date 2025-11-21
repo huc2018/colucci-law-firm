@@ -93,6 +93,13 @@ const Footer: React.FC<FooterProps> = ({ content }) => {
           </div>
 
         </div>
+
+        {/* Disclaimer Section */}
+        <div className="mt-16 pt-8 border-t border-white/10">
+          <p className="text-white/30 text-[10px] leading-relaxed tracking-wide text-justify md:text-left opacity-80 hover:opacity-100 transition-opacity duration-500">
+            {content.disclaimer}
+          </p>
+        </div>
       </div>
 
       {/* Bottom Bar */}

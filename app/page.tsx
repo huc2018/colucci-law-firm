@@ -27,8 +27,9 @@ export default function Page() {
       <main className="flex-grow">
         <Hero content={currentContent.hero} />
         <PracticeAreas content={currentContent.practice} />
-        <Attorney content={currentContent.attorney} />
         <Vision content={currentContent.vision} />
+        <Attorney content={currentContent.attorney} />
+       
         <WhyChooseUs content={currentContent.whyUs} />
         <Contact content={currentContent.contact} />
       </main>

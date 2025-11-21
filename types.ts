@@ -1,5 +1,4 @@
-
-export type Language = 'en' | 'zh';
+export type Language = "en" | "zh";
 
 export interface PracticeItem {
   title: string;
@@ -53,7 +52,8 @@ export interface Content {
     tags: string[];
   };
   whyUs: {
-    title: string;
+    titlePrefix: string;
+    titleName: string;
     items: {
       experience: { title: string; desc: string };
       personal: { title: string; desc: string };
@@ -82,9 +82,13 @@ export interface Content {
       email: string;
       message: string;
       submit: string;
-    }
+    };
   };
   footer: {
     copyright: string;
-  }
+    description: string;
+    quickLinks: string;
+    contactInfo: string;
+    disclaimer: string;
+  };
 }
