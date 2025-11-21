@@ -87,12 +87,34 @@ export const content: Record<"en" | "zh", Content> = {
       description:
         "With over 20 years of legal practice, Mr. Colucci possesses a deep understanding of laws, regulations, and litigation strategies. He is dedicated to providing personalized service, handling every case with meticulous detail. We understand the law, and we understand the Chinese community.",
       quote: "Understand Law, Understand You.",
-      image:
-        "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: "/images/attorney-colucci.jpg",
+    },
+    vision: {
+      tag: "Our Vision",
+      title: "Our Vision & Commitment",
+      description:
+        "With integrity, patience, and professionalism, we provide clear, reliable, and effective legal guidance to every client. We believe legal service is not just about 'winning a lawsuit', but about protecting families, maintaining order, and helping clients face the future with peace of mind.",
+      principles: [
+        "Transparent Integrity: Clear explanation of case assessment and fees. No exaggeration, no hidden costs.",
+        "Result-Oriented: Developing strategies from the start focused on securing the best outcome for you.",
+        "Respect & Patience: Truly listening to every client's story and concerns.",
+        "Long-term Trust: Aspiring to be the legal advisor you and your family can rely on for years.",
+      ],
+      quoteTitle: "Our Vision in One Sentence",
+      quote:
+        "Let every client who walks into our firm leave with a clearer direction and a more grounded heart.",
+      firmName: "Colucci Law Firm, P.C.",
+      firmDesc: "NJ Local · Deeply Rooted in Chinese Community 20+ Years",
+      firmSlogan:
+        "We hope that when you face difficult decisions, you have a lawyer who truly thinks for you and speaks the truth by your side.",
+      tags: [
+        "Attorney Personally Handles Cases",
+        "Clear Communication",
+        "Result Oriented",
+      ],
     },
     whyUs: {
-      titlePrefix: "Why Choose",
-      titleName: "Joseph C. Colucci, Esq.?",
+      title: "Why Choose Joseph C. Colucci, Esq.?",
       items: {
         experience: {
           title: "Senior Experience",
@@ -194,12 +216,29 @@ export const content: Record<"en" | "zh", Content> = {
       description:
         "资深经验：20 多年法律实践，深谙法律法规和诉讼策略。个性化服务：倾力亲为，细致处理每个案件。懂法律，更懂华人！",
       quote: "疑难杂症专家，为您排忧解难",
-      image:
-        "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+      image: "/images/attorney-colucci.jpg",
+    },
+    vision: {
+      tag: "Our Vision",
+      title: "我们的愿景与承诺",
+      description:
+        "以诚信、耐心与专业，为每一位客户提供清晰、可靠、有效的法律指导。我们相信，法律服务不仅是“打赢一场官司”，更是保护家庭、维护秩序、帮助客户安心面对未来。",
+      principles: [
+        "诚信透明：案件评估与费用结构清楚说明，不夸大、不隐瞒。",
+        "结果导向：从一开始就围绕“如何为您争取最有利结果”制定策略。",
+        "尊重与耐心：认真倾听每一位客户的故事与顾虑。",
+        "长期信赖：希望成为您和家人长期可以依靠的法律顾问。",
+      ],
+      quoteTitle: "一句话概括我们的愿景",
+      quote: "让每一位走进本所的客户，都能带着更清晰的方向与更踏实的心情离开。",
+      firmName: "Colucci Law Firm, P.C.",
+      firmDesc: "新泽西本地 · 深耕华人社区 20+ 年",
+      firmSlogan:
+        "我们希望，当您面临最难做决定的时刻，身边有一位真正为您着想、并且讲真话的律师。",
+      tags: ["律师亲自主把关", "清晰沟通", "结果导向"],
     },
     whyUs: {
-      titlePrefix: "为什么选择",
-      titleName: "Joseph C. Colucci, Esq.?",
+      title: "为什么选择 Joseph C. Colucci, Esq.?",
       items: {
         experience: {
           title: "资深经验",
