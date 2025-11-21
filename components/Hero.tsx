@@ -16,7 +16,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
   const opacityText = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
-    <div ref={ref} id="hero" className="relative h-screen w-full overflow-hidden bg-dark flex items-center">
+    <div ref={ref} id="hero" className="relative h-screen w-full overflow-hidden bg-dark flex items-center justify-center">
       {/* Parallax Background */}
       <motion.div 
         style={{ y: yBg }}
@@ -41,13 +41,13 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
       </motion.div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-6 z-10">
+      <div className="relative container mx-auto px-6 z-10 flex flex-col items-start justify-center h-full">
         <motion.div 
           style={{ y: yText, opacity: opacityText }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="max-w-4xl"
+          className="w-full"
         >
           <motion.div 
             initial={{ width: 0 }}
@@ -60,7 +60,13 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
             {content.subtitle}
           </h2>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-tight drop-shadow-lg">
+          {/* 
+             Updated Heading:
+             1. whitespace-nowrap: Forces text onto one line.
+             2. Responsive sizes: Adjusted to fit on mobile (text-2xl) up to huge on desktop (text-8xl).
+             3. uppercase: For "Atmospheric" look.
+          */}
+          <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-white mb-8 leading-tight drop-shadow-lg uppercase whitespace-nowrap">
             {content.title}
           </h1>
           
@@ -71,7 +77,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 + (index * 0.2), duration: 0.8 }}
-                className="text-xl md:text-2xl text-white/90 font-light italic pl-6"
+                className="text-lg md:text-2xl text-white/90 font-light italic pl-6"
               >
                 "{slogan}"
               </motion.p>
