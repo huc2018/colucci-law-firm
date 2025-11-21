@@ -1,0 +1,26 @@
+{
+  "name": "colucci-law-firm-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "framer-motion": "^12.23.24",
+    "lucide-react": "^0.554.0",
+    "next": "16.0.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.6",
+    "autoprefixer": "10.4.20",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.13",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,44 @@
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+dist/
+build/
+
+# Turbopack / Turbo repo
+.turbo/
+.turbopack/
+
+# Tailwind / PostCSS cache
+.tailwind/
+postcss.config.js.time.json
+
+# SWC / Vercel / Nitro
+.swc/
+.vercel/
+.nitro/
+
+# Env files
+.env
+.env*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+node_modules
