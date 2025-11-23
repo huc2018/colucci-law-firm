@@ -1,34 +1,95 @@
 import type { ReactNode } from "react";
-import "./globals.css";
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://coluccilawfirm.com"),
   title: {
-    default: "Colucci Law Firm, P.C. — New Jersey Chinese Community Legal Services",
+    default:
+      "Colucci Law Firm, P.C. | New Jersey Litigation, Family, Real Estate, Immigration & Injury Attorney",
     template: "%s | Colucci Law Firm, P.C.",
   },
   description:
-    "New Jersey Colucci Law Firm specializes in litigation, family law, immigration, business law, real estate, and injury claims. 20+ years serving the Chinese community.",
+    "Colucci Law Firm, P.C. is a bilingual English–Chinese law firm in New Jersey offering legal services in civil and criminal litigation, family law, real estate, commercial business matters, immigration, and injury claims. We understand the law, and we understand the Chinese community.",
   keywords: [
+    // 英文关键词（根据 content.practice 里的真实业务生成）
+    "Colucci Law Firm",
+    "Colucci Law Firm P.C.",
     "New Jersey lawyer",
-    "Chinese lawyer Edison",
-    "Colucci Law",
-    "immigration lawyer",
-    "family law NJ",
-    "criminal defense NJ",
-    "Joseph Colucci Esq",
+    "NJ attorney",
+    "New Jersey litigation lawyer",
+    "civil litigation attorney NJ",
+    "criminal defense lawyer NJ",
+    "traffic violation lawyer NJ",
+    "DUI attorney New Jersey",
+    "family law attorney NJ",
+    "divorce lawyer New Jersey",
+    "child custody attorney NJ",
+    "domestic violence restraining order lawyer",
+    "inheritance lawyer NJ",
+    "real estate lawyer NJ",
+    "residential real estate attorney",
+    "commercial real estate attorney",
+    "deed transfer lawyer",
+    "lease dispute attorney",
+    "business lawyer New Jersey",
+    "commercial contract attorney",
+    "business transfer lawyer",
+    "business registration attorney",
+    "immigration lawyer New Jersey",
+    "deportation defense lawyer NJ",
+    "marriage green card lawyer",
+    "family immigration attorney",
+    "citizenship lawyer NJ",
+    "personal injury lawyer New Jersey",
+    "car accident attorney NJ",
+    "slip and fall lawyer NJ",
+    "workplace accident lawyer",
+    "medical malpractice lawyer NJ",
+    "workers compensation lawyer NJ",
+
+    // 中文关键词（根据 zh 版内容）
+    "新泽西律师",
+    "新泽西华人律师",
+    "柯奇律师事务所",
+    "柯奇律师",
+    "新泽西民事诉讼律师",
+    "新泽西刑事辩护律师",
+    "交通违规律师",
+    "酒驾律师",
+    "新泽西家庭律师",
+    "离婚律师",
+    "子女监护律师",
+    "家暴限制令律师",
+    "遗产继承律师",
+    "新泽西房产律师",
+    "生意买卖律师",
+    "商业纠纷律师",
+    "移民律师",
+    "婚姻绿卡律师",
+    "亲属移民律师",
+    "公民入籍律师",
+    "新泽西人身伤害律师",
+    "车祸律师",
+    "滑倒摔伤律师",
+    "工伤索赔律师",
   ],
+  alternates: {
+    canonical: "https://coluccilawfirm.com",
+  },
   openGraph: {
-    title: "Colucci Law Firm, P.C.",
+    title:
+      "Colucci Law Firm, P.C. – New Jersey Litigation, Family, Real Estate, Immigration & Injury Attorney",
     description:
-      "Trusted legal services in New Jersey — litigation, immigration, family law, business law and more.",
+      "Bilingual English–Chinese law firm in New Jersey providing legal services in litigation and defense, family law, real estate, commercial business, immigration services, and injury claims.",
     url: "https://coluccilawfirm.com",
-    siteName: "Colucci Law Firm",
+    siteName: "Colucci Law Firm, P.C.",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1560250097-0b93528c311a",
+        url: "/og/colucci-og.jpg", // 建议你放一张 1200x630 的封面图在 public/og/ 下
         width: 1200,
         height: 630,
+        alt: "Colucci Law Firm, P.C. – New Jersey Attorney",
       },
     ],
     locale: "en_US",
@@ -36,53 +97,129 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Colucci Law Firm, P.C.",
+    title:
+      "Colucci Law Firm, P.C. – Bilingual New Jersey Litigation, Immigration & Injury Attorney",
     description:
-      "Legal services for the New Jersey Chinese community. Over 20 years of trusted legal experience.",
-    images: ["https://images.unsplash.com/photo-1560250097-0b93528c311a"],
+      "New Jersey law firm providing litigation, family law, real estate, commercial, immigration, and injury claim services in English and Chinese.",
+    images: ["/og/colucci-og.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
-
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LegalService",
+    name: "Colucci Law Firm, P.C.",
+    url: "https://coluccilawfirm.com",
+    image: "https://coluccilawfirm.com/og/colucci-og.jpg",
+    telephone: "+1-732-668-1420", // 主热线（来自 contact.phones 和 office）
+    email: "Jcoluccilaw@gmail.com",
+    address: [
+      {
+        "@type": "PostalAddress",
+        streetAddress: "1967 Route 27, Suite 26",
+        addressLocality: "Edison",
+        addressRegion: "NJ",
+        postalCode: "08817",
+        addressCountry: "US",
+      },
+      {
+        "@type": "PostalAddress",
+        streetAddress: "1 Hadley Ave",
+        addressLocality: "Toms River",
+        addressRegion: "NJ",
+        postalCode: "08753",
+        addressCountry: "US",
+      },
+    ],
+    areaServed: ["Edison, New Jersey", "Toms River, New Jersey", "New Jersey"],
+    // 多语言服务（根据你的中文/英文 content）
+    availableLanguage: [
+      {
+        "@type": "Language",
+        name: "English",
+      },
+      {
+        "@type": "Language",
+        name: "Chinese (Mandarin)",
+      },
+      {
+        "@type": "Language",
+        name: "Chinese (Fuzhou dialect)",
+      },
+      {
+        "@type": "Language",
+        name: "Chinese (Cantonese)",
+      },
+    ],
+    // 根据 content.practice 里的六大领域生成服务列表
+    makesOffer: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Litigation & Defense",
+          description:
+            "Civil disputes, criminal defense, traffic violations, DUI cases in New Jersey.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Family Law",
+          description:
+            "Divorce litigation, child custody, domestic violence restraining orders, inheritance matters.",
+        },
+      },
+      {
+        "@type": "Service",
+        name: "Real Estate",
+        description:
+          "Residential buying and selling, commercial real estate, deed transfers, lease disputes.",
+      },
+      {
+        "@type": "Service",
+        name: "Commercial Business",
+        description:
+          "Lease contracts, business transfers, commercial disputes, and business registration.",
+      },
+      {
+        "@type": "Service",
+        name: "Immigration Services",
+        description:
+          "Deportation defense and bail, marriage green cards, family immigration, and citizenship.",
+      },
+      {
+        "@type": "Service",
+        name: "Injury Claims",
+        description:
+          "Accidental injury (slip and fall), car accidents, workplace accidents, medical malpractice, and workers' compensation.",
+      },
+    ],
+    // 简单放一点品牌口号（来自 vision / whyUs）
+    slogan: [
+      "Strong Defense, Wholehearted Protection",
+      "Understand Law, Understand the Chinese Community",
+    ],
+  };
+
   return (
     <html lang="en">
-      <body>
-        {children}
-
-        {/* JSON-LD Structured Data */}
+      <head>
+        {/* 律师事务所 Schema.org 结构化数据，用于 Google 富结果和本地搜索 */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LegalService",
-              name: "Colucci Law Firm, P.C.",
-              image:
-                "https://images.unsplash.com/photo-1560250097-0b93528c311a",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "1967 Route 27, Suite 26",
-                addressLocality: "Edison",
-                addressRegion: "NJ",
-                postalCode: "08817",
-                addressCountry: "US",
-              },
-              telephone: "732-668-1420",
-              url: "https://coluccilawfirm.com",
-              areaServed: "New Jersey",
-              description:
-                "Trusted New Jersey Chinese community lawyer with 20+ years of legal experience.",
-              sameAs: [
-                "https://www.facebook.com/",
-                "https://www.linkedin.com/",
-              ],
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+      </head>
+      <body className="bg-white text-dark antialiased">
+        {children}
       </body>
     </html>
   );
