@@ -141,8 +141,8 @@ export const content: Record<"en" | "zh", Content> = {
       hotline: "Chinese Service Hotline",
       phones: {
         mandarin: "Ms. You: 732-668-1420 (Mandarin)",
-        fuzhou: "Mr. Huang: 732-325-78983 (Fuzhou/Cantonese)",
-        office: "Phone: 732-557-5426",
+        fuzhou: "Mr. Huang: 732-325-7898 (Fuzhou/Cantonese)",
+        office: "Phone: 732-668-1420",
         fax: "Fax: 732-862-8888",
       },
       email: "Email: Jcoluccilaw@gmail.com",
