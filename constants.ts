@@ -114,7 +114,7 @@ export const content: Record<"en" | "zh", Content> = {
       ],
     },
     whyUs: {
-      titlePrefix: "为什么选择",
+      titlePrefix: "Why Choose",
       titleName: "Joseph C. Colucci, Esq.?",
       items: {
         experience: {
@@ -272,8 +272,8 @@ export const content: Record<"en" | "zh", Content> = {
       hotline: "中文服务热线",
       phones: {
         mandarin: "尤女士 732-668-1420 (普通话)",
-        fuzhou: "黄先生 732-325-78983 (福州话/粤语)",
-        office: "电话: 732-557-5426",
+        fuzhou: "黄先生 732-325-7898 (福州话/粤语)",
+        office: "电话: 732-668-1420",
         fax: "传真: 732-862-8888",
       },
       email: "邮箱: Jcoluccilaw@gmail.com",

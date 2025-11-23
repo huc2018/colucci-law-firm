@@ -79,7 +79,7 @@ const Footer: React.FC<FooterProps> = ({ content }) => {
             <ul className="space-y-4">
               <li className="flex items-start text-white/60 text-sm">
                 <Phone className="w-5 h-5 text-accent mr-3 mt-0.5 shrink-0" />
-                <span>732-668-1420 (Mandarin)<br/>732-325-78983 (Fuzhou)</span>
+                <span>732-668-1420 (Mandarin)<br/>732-325-7898 (Fuzhou)</span>
               </li>
               <li className="flex items-start text-white/60 text-sm">
                 <MapPin className="w-5 h-5 text-accent mr-3 mt-0.5 shrink-0" />
