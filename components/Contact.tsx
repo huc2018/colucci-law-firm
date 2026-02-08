@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import { Content } from '../types';
 import { Phone, Mail, MapPin, Printer, Clock, MessageSquare, ArrowRight } from 'lucide-react';
 import SectionWrapper from './SectionWrapper';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 
 interface ContactProps {
   content: Content['contact'];
@@ -12,6 +12,7 @@ interface ContactProps {
 const Contact: React.FC<ContactProps> = ({ content }) => {
   const [activeMap, setActiveMap] = useState<'edison' | 'tomsRiver'>('edison');
   const ref = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -20,11 +21,11 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
 
   // Parallax Logic
   // Left column (Card) moves slightly slower up
-  const yLeft = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const yLeft = useTransform(scrollYProgress, [0, 1], [40, -40]);
   // Right column (Map) moves slightly faster down/up difference
-  const yRight = useTransform(scrollYProgress, [0, 1], [100, -20]);
+  const yRight = useTransform(scrollYProgress, [0, 1], [60, -16]);
   // Background decorative element movement
-  const yBg = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const yBg = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const mapConfig = {
     edison: {
@@ -47,7 +48,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
     <div ref={ref} id="contact" className="py-32 bg-neutral relative overflow-hidden">
       {/* Decorative background element with parallax */}
       <motion.div
-        style={{ y: yBg }}
+        style={{ y: shouldReduceMotion ? 0 : yBg }}
         className="absolute bottom-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/50 to-transparent pointer-events-none"
       ></motion.div>
       <div className="absolute top-20 left-[-100px] w-[300px] h-[300px] bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -63,7 +64,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
           {/* Contact Info - Left Side with Parallax */}
-          <motion.div style={{ y: yLeft }} className="lg:col-span-5 space-y-12">
+          <motion.div style={{ y: shouldReduceMotion ? 0 : yLeft }} className="lg:col-span-5 space-y-12">
             {/* Hotline Card */}
             <SectionWrapper variant="slideRight" className="bg-white p-8 md:p-10 shadow-2xl border-l-8 border-accent relative overflow-hidden rounded-sm">
               <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
@@ -154,7 +155,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
           </motion.div>
 
           {/* Locations & Map - Right Side with Parallax */}
-          <motion.div style={{ y: yRight }} className="lg:col-span-7 flex flex-col shadow-2xl rounded-sm overflow-hidden border border-gray-100 bg-white">
+          <motion.div style={{ y: shouldReduceMotion ? 0 : yRight }} className="lg:col-span-7 flex flex-col shadow-2xl rounded-sm overflow-hidden border border-gray-100 bg-white">
 
             {/* Address Selector Header - Simplified Minimal Design */}
             <SectionWrapper variant="slideLeft" className="bg-white p-8 md:p-10 relative z-10">

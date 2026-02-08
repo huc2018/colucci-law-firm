@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Content } from '../types';
 import { ShieldCheck, UserCheck, Languages, Puzzle } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 
 interface WhyChooseUsProps {
   content: Content['whyUs'];
@@ -9,6 +9,7 @@ interface WhyChooseUsProps {
 
 const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ content }) => {
   const sectionRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"]
@@ -28,8 +29,8 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ content }) => {
   }, []);
 
   // Parallax values for columns - creates a "floating" disjointed feel
-  const yColumn1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const yColumn2 = useTransform(scrollYProgress, [0, 1], [50, -20]);
+  const yColumn1 = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const yColumn2 = useTransform(scrollYProgress, [0, 1], [30, -16]);
 
   const cards = [
     { 
@@ -110,15 +111,15 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ content }) => {
           {cards.map((card, index) => {
             // Apply different parallax to even/odd items ONLY on non-mobile screens
             // On mobile (1 col), parallax causes overlap, so we disable it (y=0)
-            const y = isMobile ? 0 : (index % 2 === 0 ? yColumn1 : yColumn2);
+            const y = (isMobile || shouldReduceMotion) ? 0 : (index % 2 === 0 ? yColumn1 : yColumn2);
             
             return (
               <motion.div
                 key={index}
                 style={{ y }} // Apply parallax only on desktop
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1 }} 
-                transition={{ duration: 0.5, delay: card.delay }}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
+                whileInView={shouldReduceMotion ? {} : { opacity: 1 }} 
+                transition={{ duration: 0.45, delay: card.delay }}
                 viewport={{ once: true, margin: "-50px" }}
                 className="bg-white/5 backdrop-blur-md p-8 border border-white/10 hover:bg-white/10 hover:border-accent/50 transition-all duration-500 group relative overflow-hidden"
               >

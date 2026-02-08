@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Content } from '../types';
 import { Phone, MapPin, Mail, Globe } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import SectionWrapper from './SectionWrapper';
 
 interface FooterProps {
   content: Content['footer'];
@@ -40,7 +41,7 @@ const Footer: React.FC<FooterProps> = ({ content, nav, contact }) => {
         className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] bg-accent/20 rounded-full blur-[100px] pointer-events-none"
       />
 
-      <div className="container mx-auto px-6 py-16 relative z-10">
+      <SectionWrapper variant="fade" className="container mx-auto px-6 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-20">
           
           {/* Column 1: Brand & Description */}
@@ -107,7 +108,7 @@ const Footer: React.FC<FooterProps> = ({ content, nav, contact }) => {
             {content.disclaimer}
           </p>
         </div>
-      </div>
+      </SectionWrapper>
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10 py-8 bg-black/20 relative z-10">
