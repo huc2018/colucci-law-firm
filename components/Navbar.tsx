@@ -10,25 +10,6 @@ interface NavbarProps {
   content: Content['nav'];
 }
 
-const LogoIcon = ({ className }: { className?: string }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24 24" 
-    className={className}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
-    <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
-    <path d="M7 21h10" />
-    <path d="M12 3v18" />
-    <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
-  </svg>
-);
-
 const MobileMenuButton = ({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) => {
   return (
     <motion.button
@@ -195,12 +176,16 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
           onClick={() => scrollToSection('hero')}
         >
           <div className="flex items-center gap-3 md:gap-4">
-             {/* Icon */}
-             <LogoIcon className={`transition-all duration-700 flex-shrink-0 text-accent ${
-               isScrolled 
-               ? 'h-8 w-8 md:h-10 md:w-10' 
-               : 'h-9 w-9 md:h-12 md:w-12'
-             }`} />
+             {/* Logo Image */}
+             <img
+               src="/images/logo_gold.svg"
+               alt="Colucci Law Firm logo"
+               className={`transition-all duration-700 flex-shrink-0 ${
+                 isScrolled 
+                 ? 'h-8 w-8 md:h-10 md:w-10' 
+                 : 'h-9 w-9 md:h-12 md:w-12'
+               }`}
+             />
              
              {/* Vertical Divider - Visible only on Desktop */}
              <div className={`hidden md:block w-px bg-white/20 transition-all duration-700 ${isScrolled ? 'h-6' : 'h-8'}`}></div>
