@@ -68,7 +68,7 @@ const PracticeAreas: React.FC<PracticeAreasProps> = ({ content }) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20">
           <SectionWrapper variant="slideRight" className="max-w-2xl">
-            <h4 className="text-accent font-bold uppercase tracking-widest mb-4 text-sm">Our Expertise</h4>
+            <h4 className="text-accent font-bold uppercase tracking-widest mb-4 text-sm">{content.tag}</h4>
             <h2 className="text-4xl md:text-6xl font-serif font-bold text-primary">
               {content.title}
             </h2>

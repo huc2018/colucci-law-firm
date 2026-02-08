@@ -28,11 +28,11 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
 
   const mapConfig = {
     edison: {
-      title: "Colucci Law Firm, P. C. – Edison Office",
+      title: content.mapTitles.edison,
       src: 'https://www.google.com/maps?q="Colucci+Law+Firm,+P.+C.,+1967+NJ-27+Suite+26,+Edison,+NJ+08817"&output=embed'
     },
     tomsRiver: {
-      title: "Colucci Law Firm, P. C. – Toms River Office",
+      title: content.mapTitles.tomsRiver,
       src: "https://maps.google.com/maps?q=1%20Hadley%20Ave%2C%20Toms%20River%2C%20NJ%2008753&t=&z=15&ie=UTF8&iwloc=&output=embed"
     }
   };
@@ -82,7 +82,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                     </div>
                     <div>
                       <p className="font-bold text-primary text-lg md:text-xl leading-tight">{content.phones.mandarin}</p>
-                      <span className="hidden md:inline-block text-xs text-accent uppercase tracking-widest font-bold mt-1">Priority Line</span>
+                      <span className="hidden md:inline-block text-xs text-accent uppercase tracking-widest font-bold mt-1">{content.priorityLineLabel}</span>
                     </div>
                   </div>
                   {/* Mobile Only Priority Button */}
@@ -90,7 +90,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                     href={`tel:${getPhoneNumber(content.phones.mandarin)}`}
                     className="md:hidden flex items-center justify-between w-full bg-primary text-white px-4 py-3 rounded-sm shadow-lg active:scale-98 transition-transform"
                   >
-                    <span className="text-sm font-bold uppercase tracking-widest">Call Priority</span>
+                    <span className="text-sm font-bold uppercase tracking-widest">{content.callPriorityLabel}</span>
                     <div className="bg-accent text-primary p-1 rounded-sm">
                       <Phone size={14} fill="currentColor" />
                     </div>
@@ -108,7 +108,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                     </div>
                     <div>
                       <p className="font-bold text-primary text-lg md:text-xl leading-tight">{content.phones.fuzhou}</p>
-                      <span className="hidden md:inline-block text-xs text-accent uppercase tracking-widest font-bold mt-1">Priority Line</span>
+                      <span className="hidden md:inline-block text-xs text-accent uppercase tracking-widest font-bold mt-1">{content.priorityLineLabel}</span>
                     </div>
                   </div>
                   {/* Mobile Only Priority Button */}
@@ -116,7 +116,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                     href={`tel:${getPhoneNumber(content.phones.fuzhou)}`}
                     className="md:hidden flex items-center justify-between w-full bg-primary text-white px-4 py-3 rounded-sm shadow-lg active:scale-98 transition-transform"
                   >
-                    <span className="text-sm font-bold uppercase tracking-widest">Call Priority</span>
+                    <span className="text-sm font-bold uppercase tracking-widest">{content.callPriorityLabel}</span>
                     <div className="bg-accent text-primary p-1 rounded-sm">
                       <Phone size={14} fill="currentColor" />
                     </div>
@@ -144,8 +144,8 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                 <div className="flex items-center text-dark/80 group">
                   <Clock className="w-5 h-5 mr-4 text-accent" />
                   <div>
-                    <span className="text-lg tracking-wide font-medium">Mon - Fri: 9:00 AM - 5:30 PM</span> <br />
-                    <span className="text-lg tracking-wide font-medium">Sat: 12:00 PM - 4:30PM</span>
+                    <span className="text-lg tracking-wide font-medium">{content.hours.weekday}</span> <br />
+                    <span className="text-lg tracking-wide font-medium">{content.hours.saturday}</span>
                   </div>
 
                 </div>
@@ -172,7 +172,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                   className={`pb-4 px-6 text-lg font-serif font-bold transition-all duration-300 relative ${activeMap === 'edison' ? 'text-primary' : 'text-gray-400 hover:text-primary/70'
                     }`}
                 >
-                  Edison Office
+                  {content.locations.edisonLabel}
                   {activeMap === 'edison' && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent transition-all duration-300" />
                   )}
@@ -182,7 +182,7 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                   className={`pb-4 px-6 text-lg font-serif font-bold transition-all duration-300 relative ${activeMap === 'tomsRiver' ? 'text-primary' : 'text-gray-400 hover:text-primary/70'
                     }`}
                 >
-                  Toms River Office
+                  {content.locations.tomsRiverLabel}
                   {activeMap === 'tomsRiver' && (
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-accent transition-all duration-300" />
                   )}

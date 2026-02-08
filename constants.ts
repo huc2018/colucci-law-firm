@@ -22,6 +22,7 @@ export const content: Record<"en" | "zh", Content> = {
     },
     practice: {
       title: "Practice Areas",
+      tag: "Our Expertise",
       areas: {
         litigation: {
           title: "Litigation & Defense",
@@ -88,6 +89,13 @@ export const content: Record<"en" | "zh", Content> = {
         "With over 20 years of legal practice, Mr. Colucci possesses a deep understanding of laws, regulations, and litigation strategies. He is dedicated to providing personalized service, handling every case with meticulous detail. We understand the law, and we understand the Chinese community.",
       quote: "Understand Law, Understand You.",
       image: "/images/attorney-colucci.jpg",
+      badge: "About The Firm",
+      stats: {
+        years: "20+",
+        yearsLabel: "Years Experience",
+        languages: "4",
+        languagesLabel: "Languages Spoken",
+      },
     },
     vision: {
       tag: "Our Vision",
@@ -139,6 +147,8 @@ export const content: Record<"en" | "zh", Content> = {
     contact: {
       title: "Contact Us",
       hotline: "Chinese Service Hotline",
+      priorityLineLabel: "Priority Line",
+      callPriorityLabel: "Call Priority",
       phones: {
         mandarin: "Ms. You: 732-668-1420 (Mandarin)",
         fuzhou: "Mr. Huang: 732-325-7898 (Fuzhou/Cantonese)",
@@ -146,10 +156,20 @@ export const content: Record<"en" | "zh", Content> = {
         fax: "Fax: 732-862-8888",
       },
       email: "Email: Jcoluccilaw@gmail.com",
+      hours: {
+        weekday: "Mon - Fri: 9:00 AM - 5:30 PM",
+        saturday: "Sat: 12:00 PM - 4:30 PM",
+      },
       locations: {
         title: "Office Locations",
+        edisonLabel: "Edison Office",
+        tomsRiverLabel: "Toms River Office",
         edison: "1967 Route 27, Suite 26, Edison, NJ 08817",
         tomsRiver: "1 Hadley Ave, Toms River, NJ 08753",
+      },
+      mapTitles: {
+        edison: "Colucci Law Firm, P. C. – Edison Office",
+        tomsRiver: "Colucci Law Firm, P. C. – Toms River Office",
       },
       form: {
         name: "Your Name",
@@ -189,6 +209,7 @@ export const content: Record<"en" | "zh", Content> = {
     },
     practice: {
       title: "专业服务领域",
+      tag: "专业领域",
       areas: {
         litigation: {
           title: "诉讼辩护",
@@ -224,9 +245,16 @@ export const content: Record<"en" | "zh", Content> = {
         "资深经验：20 多年法律实践，深谙法律法规和诉讼策略。个性化服务：倾力亲为，细致处理每个案件。懂法律，更懂华人！",
       quote: "疑难杂症专家，为您排忧解难",
       image: "/images/attorney-colucci.jpg",
+      badge: "关于本所",
+      stats: {
+        years: "20+",
+        yearsLabel: "执业年限",
+        languages: "4",
+        languagesLabel: "服务语言",
+      },
     },
     vision: {
-      tag: "Our Vision",
+      tag: "我们的愿景",
       title: "我们的愿景与承诺",
       description:
         "以诚信、耐心与专业，为每一位客户提供清晰、可靠、有效的法律指导。我们相信，法律服务不仅是“打赢一场官司”，更是保护家庭、维护秩序、帮助客户安心面对未来。",
@@ -270,6 +298,8 @@ export const content: Record<"en" | "zh", Content> = {
     contact: {
       title: "联系方式",
       hotline: "中文服务热线",
+      priorityLineLabel: "优先通道",
+      callPriorityLabel: "拨打优先热线",
       phones: {
         mandarin: "尤女士 732-668-1420 (普通话)",
         fuzhou: "黄先生 732-325-7898 (福州话/粤语)",
@@ -277,10 +307,20 @@ export const content: Record<"en" | "zh", Content> = {
         fax: "传真: 732-862-8888",
       },
       email: "邮箱: Jcoluccilaw@gmail.com",
+      hours: {
+        weekday: "周一 - 周五: 9:00 AM - 5:30 PM",
+        saturday: "周六: 12:00 PM - 4:30 PM",
+      },
       locations: {
         title: "办公室地址",
+        edisonLabel: "Edison 办公室",
+        tomsRiverLabel: "Toms River 办公室",
         edison: "Edison Office: 1967 Route 27, Suite 26, Edison, NJ 08817",
         tomsRiver: "Toms River Office: 1 Hadley Ave, Toms River, NJ 08753",
+      },
+      mapTitles: {
+        edison: "Colucci Law Firm, P. C. – Edison Office",
+        tomsRiver: "Colucci Law Firm, P. C. – Toms River Office",
       },
       form: {
         name: "您的姓名",

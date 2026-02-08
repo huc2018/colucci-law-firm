@@ -22,6 +22,7 @@ export interface Content {
   };
   practice: {
     title: string;
+    tag: string;
     areas: {
       litigation: PracticeItem;
       family: PracticeItem;
@@ -38,6 +39,13 @@ export interface Content {
     description: string;
     quote: string;
     image: string;
+    badge: string;
+    stats: {
+      years: string;
+      yearsLabel: string;
+      languages: string;
+      languagesLabel: string;
+    };
   };
   vision: {
     tag: string;
@@ -65,6 +73,8 @@ export interface Content {
   contact: {
     title: string;
     hotline: string;
+    priorityLineLabel: string;
+    callPriorityLabel: string;
     phones: {
       mandarin: string;
       fuzhou: string;
@@ -72,8 +82,18 @@ export interface Content {
       fax: string;
     };
     email: string;
+    hours: {
+      weekday: string;
+      saturday: string;
+    };
     locations: {
       title: string;
+      edisonLabel: string;
+      tomsRiverLabel: string;
+      edison: string;
+      tomsRiver: string;
+    };
+    mapTitles: {
       edison: string;
       tomsRiver: string;
     };

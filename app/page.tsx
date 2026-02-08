@@ -34,9 +34,8 @@ export default function Page() {
         <Contact content={currentContent.contact} />
       </main>
 
-      <Footer content={currentContent.footer} />
+      <Footer content={currentContent.footer} nav={currentContent.nav} contact={currentContent.contact} />
       <ScrollToTop />
     </div>
   );
 }
-

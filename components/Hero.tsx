@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
         className="absolute inset-0 w-full h-[120%] -top-[10%]"
       >
         <img
-          src="images/hero-bg.avif"
+          src="/images/hero-bg.avif"
           alt="Modern Law Firm Architecture"
           className="w-full h-full object-cover"
         />

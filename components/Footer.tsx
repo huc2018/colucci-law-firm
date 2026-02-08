@@ -5,6 +5,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface FooterProps {
   content: Content['footer'];
+  nav: Content['nav'];
+  contact: Content['contact'];
 }
 
 // Helper to scroll smoothly
@@ -18,7 +20,7 @@ const scrollTo = (id: string) => {
   }
 };
 
-const Footer: React.FC<FooterProps> = ({ content }) => {
+const Footer: React.FC<FooterProps> = ({ content, nav, contact }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -59,14 +61,19 @@ const Footer: React.FC<FooterProps> = ({ content }) => {
           <div>
             <h4 className="text-lg font-serif font-bold text-white mb-6">{content.quickLinks}</h4>
             <ul className="space-y-4">
-              {['practice', 'attorney', 'why-us', 'contact'].map((link) => (
-                <li key={link}>
+              {[
+                { id: 'practice', label: nav.practice },
+                { id: 'attorney', label: nav.attorney },
+                { id: 'why-us', label: nav.whyUs },
+                { id: 'contact', label: nav.contact },
+              ].map((link) => (
+                <li key={link.id}>
                   <button 
-                    onClick={() => scrollTo(link)}
+                    onClick={() => scrollTo(link.id)}
                     className="text-white/60 hover:text-accent transition-colors duration-300 flex items-center text-sm uppercase tracking-widest"
                   >
                     <span className="w-1.5 h-1.5 bg-white/20 rounded-full mr-3 group-hover:bg-accent"></span>
-                    {link.replace('-', ' ')}
+                    {link.label}
                   </button>
                 </li>
               ))}
@@ -79,15 +86,15 @@ const Footer: React.FC<FooterProps> = ({ content }) => {
             <ul className="space-y-4">
               <li className="flex items-start text-white/60 text-sm">
                 <Phone className="w-5 h-5 text-accent mr-3 mt-0.5 shrink-0" />
-                <span>732-668-1420 (Mandarin)<br/>732-325-7898 (Fuzhou)</span>
+                <span>{contact.phones.mandarin}<br/>{contact.phones.fuzhou}</span>
               </li>
               <li className="flex items-start text-white/60 text-sm">
                 <MapPin className="w-5 h-5 text-accent mr-3 mt-0.5 shrink-0" />
-                <span>1967 Route 27, Suite 26<br/>Edison, NJ 08817</span>
+                <span>{contact.locations.edison}<br/>{contact.locations.tomsRiver}</span>
               </li>
               <li className="flex items-center text-white/60 text-sm">
                 <Mail className="w-5 h-5 text-accent mr-3 shrink-0" />
-                <span>Jcoluccilaw@gmail.com</span>
+                <span>{contact.email}</span>
               </li>
             </ul>
           </div>

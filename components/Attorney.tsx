@@ -61,7 +61,7 @@ const Attorney: React.FC<AttorneyProps> = ({ content }) => {
           {/* Text Section */}
           <SectionWrapper variant="slideLeft" className="w-full lg:w-1/2">
             <div className="inline-block px-3 py-1 border border-accent/50 rounded-full text-accent text-xs tracking-[0.2em] uppercase mb-6">
-              About The Firm
+              {content.badge}
             </div>
             <h2 className="text-5xl lg:text-6xl font-serif font-bold text-primary mb-4 leading-tight">
               {content.name}
@@ -78,12 +78,12 @@ const Attorney: React.FC<AttorneyProps> = ({ content }) => {
 
             <div className="grid grid-cols-2 gap-8 border-t border-gray-100 pt-8">
               <div>
-                 <div className="text-4xl font-bold text-primary mb-1 font-serif">20+</div>
-                 <div className="text-xs uppercase tracking-widest text-gray-400">Years Experience</div>
+                 <div className="text-4xl font-bold text-primary mb-1 font-serif">{content.stats.years}</div>
+                 <div className="text-xs uppercase tracking-widest text-gray-400">{content.stats.yearsLabel}</div>
               </div>
               <div>
-                 <div className="text-4xl font-bold text-primary mb-1 font-serif">4</div>
-                 <div className="text-xs uppercase tracking-widest text-gray-400">Languages Spoken</div>
+                 <div className="text-4xl font-bold text-primary mb-1 font-serif">{content.stats.languages}</div>
+                 <div className="text-xs uppercase tracking-widest text-gray-400">{content.stats.languagesLabel}</div>
               </div>
             </div>
           </SectionWrapper>
