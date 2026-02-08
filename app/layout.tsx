@@ -5,10 +5,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://coluccilawfirm.com"),
   title: {
-    default:
-      "Colucci Law Firm, P.C. | New Jersey Litigation, Family, Real Estate, Immigration & Injury Attorney",
-    template: "%s | Colucci Law Firm, P.C.",
+    default: "Colucci Law Firm, P.C. 柯奇律师事务所 | 新泽西律师 / New Jersey Litigation, Family, Real Estate, Immigration & Injury Attorney",
+    template: "%s | Colucci Law Firm, P.C. 柯奇律师事务所",
   },
+
   description:
     "Colucci Law Firm, P.C. is a bilingual English–Chinese law firm in New Jersey offering legal services in civil and criminal litigation, family law, real estate, commercial business matters, immigration, and injury claims. We understand the law, and we understand the Chinese community.",
   keywords: [

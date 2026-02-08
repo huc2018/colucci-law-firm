@@ -125,7 +125,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
     return (
       <button
         onClick={() => scrollToSection(id)}
-        className="relative h-full px-8 xl:px-10 flex items-center justify-center group"
+        className="relative h-full px-4 xl:px-6 flex items-center justify-center group"
       >
         {isActive && (
           <motion.div
