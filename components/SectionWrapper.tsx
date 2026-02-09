@@ -8,6 +8,7 @@ interface SectionWrapperProps {
   variant?: 'slideUp' | 'slideLeft' | 'slideRight' | 'scale' | 'fade' | 'stagger';
   delay?: number;
   viewportAmount?: number;
+  once?: boolean;
 }
 
 const variants = {
@@ -68,7 +69,8 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
   id, 
   variant = 'slideUp',
   delay = 0,
-  viewportAmount = 0.2
+  viewportAmount = 0.2,
+  once = true
 }) => {
   return (
     <motion.section
@@ -76,7 +78,7 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: viewportAmount }}
+      viewport={{ once, amount: viewportAmount }}
       transition={{ delay }}
       variants={variants[variant]}
     >

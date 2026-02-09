@@ -30,21 +30,6 @@ const PracticeAreas: React.FC<PracticeAreasProps> = ({ content }) => {
 
   const keys = Object.keys(content.areas) as Array<keyof typeof content.areas>;
 
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariant = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
-  };
-
   return (
     <div ref={sectionRef} id="practice" className="py-32 bg-neutral relative overflow-hidden">
       
@@ -65,30 +50,23 @@ const PracticeAreas: React.FC<PracticeAreasProps> = ({ content }) => {
       {/* Background Gradient overlay */}
       <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-dark/5 to-transparent pointer-events-none"></div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      <SectionWrapper variant="fade" once={false} className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20">
-          <SectionWrapper variant="slideRight" className="max-w-2xl">
+          <div className="max-w-2xl">
             <h4 className="text-accent font-bold uppercase tracking-widest mb-4 text-sm">{content.tag}</h4>
             <h2 className="text-4xl md:text-6xl font-serif font-bold text-primary">
               {content.title}
             </h2>
-          </SectionWrapper>
-          <SectionWrapper variant="slideLeft" delay={0.2} className="hidden md:block">
+          </div>
+          <div className="hidden md:block">
             <div className="h-px w-32 bg-accent mb-8"></div>
-          </SectionWrapper>
+          </div>
         </div>
 
-        <motion.div 
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {keys.map((key) => (
-            <motion.div 
+            <div 
               key={key} 
-              variants={itemVariant}
               className="group bg-white p-10 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-200 hover:border-accent/30 relative overflow-hidden rounded-sm"
             >
               {/* Top Line Accent */}
@@ -113,10 +91,10 @@ const PracticeAreas: React.FC<PracticeAreasProps> = ({ content }) => {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-      </div>
+        </div>
+      </SectionWrapper>
     </div>
   );
 };

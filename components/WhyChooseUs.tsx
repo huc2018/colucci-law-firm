@@ -63,10 +63,10 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ content }) => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 max-w-5xl mx-auto">
-          <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+          <motion.div
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
+            whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true }}
             className="font-serif font-bold mb-6 text-white leading-tight"
           >
@@ -79,26 +79,38 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ content }) => {
                    - Tablet: text-4xl
                    - Desktop: text-6xl
              */}
-            <span className="block text-3xl md:text-4xl text-white/80 mb-3 font-medium">
+            <motion.span
+              className="block text-3xl md:text-4xl text-white/80 mb-3 font-medium"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+              whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true }}
+            >
               {content.titlePrefix}
-            </span>
-            <span className="block text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-accent whitespace-nowrap tracking-wide">
+            </motion.span>
+            <motion.span
+              className="block text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-accent whitespace-nowrap tracking-wide"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
+              whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ once: true }}
+            >
               {content.titleName}
-            </span>
-          </motion.h2>
+            </motion.span>
+          </motion.div>
           
           <motion.div 
-             initial={{ width: 0 }}
-             whileInView={{ width: "100px" }}
-             transition={{ duration: 0.8, delay: 0.3 }}
+             initial={shouldReduceMotion ? false : { width: 0, opacity: 0 }}
+             whileInView={shouldReduceMotion ? {} : { width: "140px", opacity: 1 }}
+             transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
              viewport={{ once: true }}
-             className="h-1 bg-white/20 mx-auto mb-8"
+             className="h-[2px] bg-gradient-to-r from-transparent via-white/60 to-transparent mx-auto mb-8"
           ></motion.div>
 
           <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+            whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
             viewport={{ once: true }}
             className="text-lg md:text-xl text-white/90 font-medium tracking-wide italic"
           >
@@ -117,11 +129,11 @@ const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ content }) => {
               <motion.div
                 key={index}
                 style={{ y }} // Apply parallax only on desktop
-                initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
-                whileInView={shouldReduceMotion ? {} : { opacity: 1 }} 
-                transition={{ duration: 0.45, delay: card.delay }}
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 22, x: index % 2 === 0 ? -12 : 12 }}
+                whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0, x: 0 }} 
+                transition={{ duration: 0.6, delay: 0.06 * index, ease: [0.22, 1, 0.36, 1] }}
                 viewport={{ once: true, margin: "-50px" }}
-                className="bg-white/5 backdrop-blur-md p-8 border border-white/10 hover:bg-white/10 hover:border-accent/50 transition-all duration-500 group relative overflow-hidden"
+                className="bg-white/5 backdrop-blur-md p-8 border border-white/10 hover:bg-white/10 hover:border-accent/50 transition-all duration-500 group relative overflow-hidden hover:shadow-[0_20px_50px_rgba(200,165,93,0.15)]"
               >
                 <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-primary transition-colors duration-300 relative z-10">
                   <card.icon className="w-7 h-7 text-accent group-hover:text-primary transition-colors duration-300" />

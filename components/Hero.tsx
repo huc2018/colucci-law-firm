@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Content } from '../types';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
+import Image from 'next/image';
 
 interface HeroProps {
   content: Content['hero'];
@@ -32,10 +33,13 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
         style={{ y: isMotionSafe ? yBg : 0 }}
         className="absolute inset-0 w-full h-[120%] -top-[10%]"
       >
-        <img
+        <Image
           src="/images/hero-bg.avif"
           alt="Modern Law Firm Architecture"
-          className="w-full h-full object-cover"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
 
         {/* Overlays for legibility and brand color consistency */}
@@ -44,7 +48,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
       </motion.div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-6 z-10 flex flex-col items-start justify-center h-full">
+      <div className="relative container mx-auto px-6 z-10 flex flex-col items-start justify-center h-full -translate-y-6 md:translate-y-0">
         <motion.div 
           style={{ y: isMotionSafe ? yText : 0, opacity: isMotionSafe ? opacityText : 1 }}
           initial={isMotionSafe ? { opacity: 0, x: -30 } : false}
@@ -69,7 +73,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
              2. Responsive sizes: Adjusted to fit on mobile (text-2xl) up to huge on desktop (text-8xl).
              3. uppercase: For "Atmospheric" look.
           */}
-          <h1 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-white mb-8 leading-tight drop-shadow-lg uppercase whitespace-normal sm:whitespace-nowrap">
+          <h1 className="text-[clamp(1.75rem,5vw,2.25rem)] sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold text-white mb-8 leading-tight drop-shadow-lg uppercase whitespace-normal sm:whitespace-nowrap">
             {content.title}
           </h1>
           
@@ -80,7 +84,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
                 initial={isMotionSafe ? { opacity: 0, y: 16 } : false}
                 animate={isMotionSafe ? { opacity: 1, y: 0 } : false}
                 transition={{ delay: 0.4 + (index * 0.12), duration: 0.6 }}
-                className="text-lg md:text-2xl text-white/90 font-light italic pl-6"
+                className="text-[clamp(1.15rem,3.4vw,1.125rem)] sm:text-lg md:text-2xl text-white/90 font-light italic pl-6"
               >
                 "{slogan}"
               </motion.p>

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Content } from '../types';
 import SectionWrapper from './SectionWrapper';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import Image from 'next/image';
 
 interface AttorneyProps {
   content: Content['attorney'];
@@ -32,10 +33,12 @@ const Attorney: React.FC<AttorneyProps> = ({ content }) => {
           >
             <div className="relative h-[600px] w-full overflow-hidden rounded-sm bg-neutral group cursor-pointer">
               <motion.div style={{ y: yImg, scale: scaleImg }} className="w-full h-full absolute inset-0">
-                 <img 
+                 <Image 
                   src={content.image} 
-                  alt={content.name} 
-                  className="w-full h-[110%] object-cover object-top shadow-inner transition-all duration-1000 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale-[20%]"
+                  alt={content.name}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top shadow-inner transition-all duration-1000 ease-out group-hover:scale-105 group-hover:grayscale-0 grayscale-[20%]"
                 />
               </motion.div>
               
