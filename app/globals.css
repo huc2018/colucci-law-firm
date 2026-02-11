@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero-mobile-landscape {
+    min-height: 100svh;
+    height: auto;
+  }
+
+  .hero-mobile-landscape-content {
+    padding-top: 6.5rem;
+    padding-bottom: 2rem;
+    justify-content: flex-start;
+    transform: none;
+  }
+}

@@ -27,7 +27,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
   const isMotionSafe = !shouldReduceMotion && !isMobile;
 
   return (
-    <div ref={ref} id="hero" className="relative h-screen w-full overflow-hidden bg-dark flex items-center justify-center">
+    <div ref={ref} id="hero" className="hero-mobile-landscape relative h-screen w-full overflow-hidden bg-dark flex items-center justify-center">
       {/* Parallax Background */}
       <motion.div 
         style={{ y: isMotionSafe ? yBg : 0 }}
@@ -48,7 +48,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
       </motion.div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-6 z-10 flex flex-col items-start justify-center h-full -translate-y-6 md:translate-y-0">
+      <div className="hero-mobile-landscape-content relative container mx-auto px-6 z-10 flex flex-col items-start justify-center h-full -translate-y-6 md:translate-y-0">
         <motion.div 
           style={{ y: isMotionSafe ? yText : 0, opacity: isMotionSafe ? opacityText : 1 }}
           initial={isMotionSafe ? { opacity: 0, x: -30 } : false}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Language } from "../../../../types";
+import PhoneActionButton from "../../../../components/PhoneActionButton";
 import {
   practiceSlugs,
   type PracticeSlug,
@@ -156,12 +157,13 @@ export default async function PracticeAreaDetailPage({ params }: PageProps) {
         <section className="mt-10 bg-white rounded-sm border border-gray-200 p-8 shadow-sm">
           <h2 className="text-2xl font-serif font-semibold text-primary mb-5">{labels.contact}</h2>
           <div className="flex flex-wrap gap-4">
-            <a
-              href="tel:+17326681420"
+            <PhoneActionButton
+              phoneNumber="+17326681420"
               className="inline-flex items-center bg-primary text-white px-5 py-3 rounded-sm font-semibold hover:bg-primary/90 transition-colors"
-            >
-              {labels.call}
-            </a>
+              label={labels.call}
+              copiedLabel={lang === "zh" ? "电话已复制" : "Phone copied"}
+              copyFailedLabel={lang === "zh" ? "复制失败，请手动复制" : "Copy failed, please copy manually"}
+            />
             <a
               href="mailto:Jcoluccilaw@gmail.com"
               className="inline-flex items-center bg-accent text-primary px-5 py-3 rounded-sm font-semibold hover:bg-accent/90 transition-colors"
