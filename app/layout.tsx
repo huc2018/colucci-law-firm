@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -74,9 +75,6 @@ export const metadata: Metadata = {
     "滑倒摔伤律师",
     "工伤索赔律师",
   ],
-  alternates: {
-    canonical: "https://coluccilawfirm.com",
-  },
   openGraph: {
     title:
       "Colucci Law Firm, P.C. – New Jersey Litigation, Family, Real Estate, Immigration & Injury Attorney",
@@ -110,7 +108,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const requestHeaders = await headers();
+  const siteLang = requestHeaders.get("x-site-lang") || "zh-CN";
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LegalService",
@@ -178,28 +178,40 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         },
       },
       {
-        "@type": "Service",
-        name: "Real Estate",
-        description:
-          "Residential buying and selling, commercial real estate, deed transfers, lease disputes.",
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Real Estate",
+          description:
+            "Residential buying and selling, commercial real estate, deed transfers, lease disputes.",
+        },
       },
       {
-        "@type": "Service",
-        name: "Commercial Business",
-        description:
-          "Lease contracts, business transfers, commercial disputes, and business registration.",
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Commercial Business",
+          description:
+            "Lease contracts, business transfers, commercial disputes, and business registration.",
+        },
       },
       {
-        "@type": "Service",
-        name: "Immigration Services",
-        description:
-          "Deportation defense and bail, marriage green cards, family immigration, and citizenship.",
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Immigration Services",
+          description:
+            "Deportation defense and bail, marriage green cards, family immigration, and citizenship.",
+        },
       },
       {
-        "@type": "Service",
-        name: "Injury Claims",
-        description:
-          "Accidental injury (slip and fall), car accidents, workplace accidents, medical malpractice, and workers' compensation.",
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Injury Claims",
+          description:
+            "Accidental injury (slip and fall), car accidents, workplace accidents, medical malpractice, and workers' compensation.",
+        },
       },
     ],
     // 简单放一点品牌口号（来自 vision / whyUs）
@@ -210,7 +222,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   };
 
   return (
-    <html lang="en">
+    <html lang={siteLang}>
       <head>
         {/* 律师事务所 Schema.org 结构化数据，用于 Google 富结果和本地搜索 */}
         <script

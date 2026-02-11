@@ -1,14 +1,25 @@
 import React, { useRef } from 'react';
-import { Content } from '../types';
+import Link from 'next/link';
+import { Content, Language } from '../types';
 import { Scale, Users, Home, Briefcase, Globe, Activity, ArrowRight } from 'lucide-react';
 import SectionWrapper from './SectionWrapper';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 interface PracticeAreasProps {
   content: Content['practice'];
+  lang: Language;
 }
 
-const PracticeAreas: React.FC<PracticeAreasProps> = ({ content }) => {
+const areaRouteMap = {
+  litigation: 'litigation',
+  family: 'family',
+  realEstate: 'real-estate',
+  commercial: 'commercial-business',
+  immigration: 'immigration',
+  injury: 'injury-claims',
+} as const;
+
+const PracticeAreas: React.FC<PracticeAreasProps> = ({ content, lang }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -65,9 +76,11 @@ const PracticeAreas: React.FC<PracticeAreasProps> = ({ content }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {keys.map((key) => (
-            <div 
+            <Link
               key={key} 
-              className="group bg-white p-10 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-200 hover:border-accent/30 relative overflow-hidden rounded-sm"
+              href={`/${lang}/practice-areas/${areaRouteMap[key]}`}
+              aria-label={`${content.areas[key].title} details`}
+              className="group block bg-white p-10 shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-200 hover:border-accent/30 relative overflow-hidden rounded-sm"
             >
               {/* Top Line Accent */}
               <div className="absolute top-0 left-0 w-0 h-1 bg-accent group-hover:w-full transition-all duration-500 ease-out"></div>
@@ -91,7 +104,7 @@ const PracticeAreas: React.FC<PracticeAreasProps> = ({ content }) => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Link>
           ))}
         </div>
       </SectionWrapper>
