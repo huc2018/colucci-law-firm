@@ -23,6 +23,11 @@ const scrollTo = (id: string) => {
 
 const Footer: React.FC<FooterProps> = ({ content, nav, contact }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const currentYear = new Date().getFullYear();
+  const copyrightText = content.copyright.replace(
+    /\b(19|20)\d{2}\b/,
+    String(currentYear),
+  );
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -114,7 +119,7 @@ const Footer: React.FC<FooterProps> = ({ content, nav, contact }) => {
       <div className="border-t border-white/10 py-8 bg-black/20 relative z-10">
         <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-white/30 text-xs tracking-wider text-center md:text-left">
-            {content.copyright}
+            {copyrightText}
           </p>
           <div className="flex items-center gap-4 opacity-30 grayscale hover:grayscale-0 transition-all duration-500">
              {/* Decorative placeholder icons for social proof/trust */}
