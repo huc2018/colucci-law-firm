@@ -228,7 +228,8 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
                ? 'text-base md:text-lg lg:text-xl' 
                : 'text-lg md:text-xl lg:text-2xl'
              }`}>
-               COLUCCI LAW FIRM, P.C.
+               <span className="max-[436px]:hidden">COLUCCI LAW FIRM, P.C.</span>
+               <span className="hidden max-[436px]:inline">COLUCCI LF, P.C.</span>
              </span>
           </div>
         </button>

@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Content } from '../types';
 import { Phone, Mail, MapPin, Printer, Clock, MessageSquare, ArrowRight } from 'lucide-react';
 import SectionWrapper from './SectionWrapper';
@@ -11,8 +11,13 @@ interface ContactProps {
 
 const Contact: React.FC<ContactProps> = ({ content }) => {
   const [activeMap, setActiveMap] = useState<'edison' | 'tomsRiver'>('edison');
+  const [isMapMounted, setIsMapMounted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    setIsMapMounted(true);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -201,20 +206,27 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
 
             {/* Map Embed */}
             <SectionWrapper variant="scale" delay={0.2} className="h-[450px] w-full bg-gray-100 relative group border-t border-gray-100">
-              <iframe
-                key={activeMap} // Force re-render animation on change
-                title={mapConfig[activeMap].title}
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                scrolling="no"
-                marginHeight={0}
-                marginWidth={0}
-                src={mapConfig[activeMap].src}
-                // Full color on mobile (block), Gray on desktop (hidden lg:block) + Hover Color
-                className="w-full h-full grayscale-0 lg:grayscale lg:hover:grayscale-0 transition-all duration-1000 ease-in-out"
-                loading="lazy"
-              ></iframe>
+              {isMapMounted ? (
+                <iframe
+                  key={activeMap} // Force re-render animation on change
+                  title={mapConfig[activeMap].title}
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  scrolling="no"
+                  marginHeight={0}
+                  marginWidth={0}
+                  src={mapConfig[activeMap].src}
+                  // Full color on mobile (block), Gray on desktop (hidden lg:block) + Hover Color
+                  className="w-full h-full grayscale-0 lg:grayscale lg:hover:grayscale-0 transition-all duration-1000 ease-in-out"
+                  loading="lazy"
+                ></iframe>
+              ) : (
+                <div
+                  aria-hidden="true"
+                  className="w-full h-full bg-gray-200 animate-pulse"
+                />
+              )}
             </SectionWrapper>
           </motion.div>
 
