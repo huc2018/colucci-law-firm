@@ -232,6 +232,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         />
       </head>
       <body className="bg-white text-dark antialiased">
+        <a href="#main-content" className="skip-link">
+          Skip to main content / 跳转至主要内容
+        </a>
         {children}
         {process.env.NODE_ENV === "production" && (
           <Script id="ms-clarity" strategy="afterInteractive">

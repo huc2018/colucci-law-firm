@@ -33,7 +33,7 @@ export default function HomePage({ initialLang }: HomePageProps) {
     <div className="min-h-screen flex flex-col">
       <Navbar lang={lang} setLang={handleSetLang} content={currentContent.nav} />
 
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow">
         <Hero content={currentContent.hero} />
         <PracticeAreas content={currentContent.practice} lang={lang} />
         <Vision content={currentContent.vision} />

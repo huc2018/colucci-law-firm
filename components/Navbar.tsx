@@ -11,19 +11,23 @@ interface NavbarProps {
   content: Content['nav'];
 }
 
-const MobileMenuButton = ({ isOpen, onClick, controlsId }: { isOpen: boolean; onClick: () => void; controlsId: string }) => {
+const MobileMenuButton = React.forwardRef<
+  HTMLButtonElement,
+  { isOpen: boolean; onClick: () => void; controlsId: string }
+>(({ isOpen, onClick, controlsId }, ref) => {
   return (
     <motion.button
+      ref={ref}
       initial={false}
       animate={isOpen ? "open" : "closed"}
       onClick={onClick}
       type="button"
+      aria-haspopup="menu"
       aria-expanded={isOpen}
       aria-controls={controlsId}
       aria-label={isOpen ? "Close menu" : "Open menu"}
-      className="flex flex-col justify-center items-center w-10 h-10 md:w-12 md:h-12 space-y-1.5 group focus:outline-none z-50 relative"
+      className="flex flex-col justify-center items-center w-10 h-10 md:w-12 md:h-12 space-y-1.5 group z-50 relative"
     >
-      {/* Top Line */}
       <motion.span
         variants={{
           closed: { rotate: 0, y: 0 },
@@ -32,7 +36,6 @@ const MobileMenuButton = ({ isOpen, onClick, controlsId }: { isOpen: boolean; on
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         className="w-6 md:w-7 h-0.5 bg-white group-hover:bg-accent block rounded-full transition-colors duration-300"
       />
-      {/* Middle Line */}
       <motion.span
         variants={{
           closed: { opacity: 1, x: 0 },
@@ -41,7 +44,6 @@ const MobileMenuButton = ({ isOpen, onClick, controlsId }: { isOpen: boolean; on
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
         className="w-6 md:w-7 h-0.5 bg-white group-hover:bg-accent block rounded-full transition-colors duration-300"
       />
-      {/* Bottom Line */}
       <motion.span
         variants={{
           closed: { rotate: 0, y: 0 },
@@ -52,14 +54,18 @@ const MobileMenuButton = ({ isOpen, onClick, controlsId }: { isOpen: boolean; on
       />
     </motion.button>
   );
-};
+});
+MobileMenuButton.displayName = "MobileMenuButton";
 
 const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const mobileMenuId = "mobile-menu";
-  const firstMobileLinkRef = useRef<HTMLButtonElement | null>(null);
+  const firstMobileLinkRef = useRef<HTMLAnchorElement | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const wasMobileMenuOpenRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,8 +96,12 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
   }, []);
   
   useEffect(() => {
-    if (!isMobileMenuOpen) return;
-    firstMobileLinkRef.current?.focus();
+    if (isMobileMenuOpen) {
+      firstMobileLinkRef.current?.focus();
+    } else if (wasMobileMenuOpenRef.current) {
+      mobileMenuButtonRef.current?.focus();
+    }
+    wasMobileMenuOpenRef.current = isMobileMenuOpen;
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
@@ -99,6 +109,27 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setIsMobileMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+      const menuElement = mobileMenuRef.current;
+      if (!menuElement) return;
+      const focusableElements = menuElement.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      );
+      if (focusableElements.length === 0) return;
+
+      const first = focusableElements[0];
+      const last = focusableElements[focusableElements.length - 1];
+      const active = document.activeElement;
+
+      if (event.shiftKey && active === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && active === last) {
+        event.preventDefault();
+        first.focus();
       }
     };
     window.addEventListener("keydown", onKeyDown);
@@ -120,6 +151,14 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
     }
   };
 
+  const onNavLinkClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
+    event.preventDefault();
+    scrollToSection(id);
+  };
+
   const toggleLang = () => {
     setLang(lang === 'en' ? 'zh' : 'en');
   };
@@ -127,8 +166,9 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
   const NavLink = ({ id, label }: { id: string; label: string }) => {
     const isActive = activeSection === id;
     return (
-      <button
-        onClick={() => scrollToSection(id)}
+      <a
+        href={`#${id}`}
+        onClick={(event) => onNavLinkClick(event, id)}
         aria-current={isActive ? "page" : undefined}
         className="relative h-full px-4 xl:px-6 flex items-center justify-center group"
       >
@@ -155,17 +195,18 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
         >
           {label}
         </span>
-      </button>
+      </a>
     );
   };
 
-  const MobileNavLink = React.forwardRef<HTMLButtonElement, { id: string; label: string }>(
+  const MobileNavLink = React.forwardRef<HTMLAnchorElement, { id: string; label: string }>(
     ({ id, label }, ref) => {
     const isActive = activeSection === id;
     return (
-      <button
+      <a
         ref={ref}
-        onClick={() => scrollToSection(id)}
+        href={`#${id}`}
+        onClick={(event) => onNavLinkClick(event, id)}
         aria-current={isActive ? "page" : undefined}
         className={`relative w-full text-left py-6 px-6 border-b border-white/5 transition-all duration-300 flex items-center justify-between overflow-hidden group ${
           isActive ? 'bg-white/5' : 'hover:bg-white/5'
@@ -183,7 +224,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
             className="absolute left-0 top-0 bottom-0 w-1 bg-accent"
           />
         )}
-      </button>
+      </a>
     );
   });
   MobileNavLink.displayName = "MobileNavLink";
@@ -199,10 +240,10 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
       <div className="container mx-auto px-4 md:px-8 h-full flex justify-between items-center">
         
         {/* Logo Section */}
-        <button
+        <a
           className="relative z-50 cursor-pointer flex items-center h-full group"
-          onClick={() => scrollToSection('hero')}
-          type="button"
+          href="#hero"
+          onClick={(event) => onNavLinkClick(event, 'hero')}
           aria-label="Scroll to top of page"
         >
           <div className="flex items-center gap-3 md:gap-4">
@@ -232,7 +273,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
                <span className="hidden max-[436px]:inline">COLUCCI LF, P.C.</span>
              </span>
           </div>
-        </button>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center h-full gap-2">
@@ -263,6 +304,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
           </button>
           
           <MobileMenuButton 
+            ref={mobileMenuButtonRef}
             isOpen={isMobileMenuOpen} 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
             controlsId={mobileMenuId}
@@ -277,6 +319,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           id={mobileMenuId}
+          ref={mobileMenuRef}
           className="lg:hidden absolute top-full left-0 w-full bg-primary/95 backdrop-blur-xl border-t border-white/10 shadow-2xl border-b"
         >
           <div className="flex flex-col p-0">

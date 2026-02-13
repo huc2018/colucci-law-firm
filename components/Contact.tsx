@@ -44,9 +44,9 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
   };
 
   const getPhoneNumber = (str: string) => {
-    // Simple regex to extract the first sequence of numbers that looks like a phone number
-    const match = str.match(/[\d-]{7,}/);
-    return match ? match[0] : '';
+    const digits = str.replace(/\D/g, '');
+    if (!digits) return '';
+    return digits.startsWith('1') ? `+${digits}` : `+1${digits}`;
   };
 
   return (
@@ -137,15 +137,30 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
               <div className="space-y-6">
                 <div className="flex items-center text-dark/80 hover:text-primary transition-colors group">
                   <Phone className="w-5 h-5 mr-4 text-accent group-hover:scale-110 transition-transform" />
-                  <span className="text-lg tracking-wide font-medium">{content.phones.office}</span>
+                  <a
+                    href={`tel:${getPhoneNumber(content.phones.office)}`}
+                    className="text-lg tracking-wide font-medium underline-offset-4 hover:underline"
+                  >
+                    {content.phones.office}
+                  </a>
                 </div>
                 <div className="flex items-center text-dark/80 hover:text-primary transition-colors group">
                   <Printer className="w-5 h-5 mr-4 text-accent group-hover:scale-110 transition-transform" />
-                  <span className="text-lg tracking-wide font-medium">{content.phones.fax}</span>
+                  <a
+                    href={`tel:${getPhoneNumber(content.phones.fax)}`}
+                    className="text-lg tracking-wide font-medium underline-offset-4 hover:underline"
+                  >
+                    {content.phones.fax}
+                  </a>
                 </div>
                 <div className="flex items-center text-dark/80 hover:text-primary transition-colors group">
                   <Mail className="w-5 h-5 mr-4 text-accent group-hover:scale-110 transition-transform" />
-                  <span className="text-lg tracking-wide font-medium">{content.email}</span>
+                  <a
+                    href={`mailto:${content.email}`}
+                    className="text-lg tracking-wide font-medium underline-offset-4 hover:underline"
+                  >
+                    {content.email}
+                  </a>
                 </div>
                 <div className="flex items-center text-dark/80 group">
                   <Clock className="w-5 h-5 mr-4 text-accent" />

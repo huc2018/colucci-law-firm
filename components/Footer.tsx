@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Content } from '../types';
-import { Phone, MapPin, Mail, Globe } from 'lucide-react';
+import { Phone, MapPin, Mail } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
 
@@ -74,13 +74,17 @@ const Footer: React.FC<FooterProps> = ({ content, nav, contact }) => {
                 { id: 'contact', label: nav.contact },
               ].map((link) => (
                 <li key={link.id}>
-                  <button 
-                    onClick={() => scrollTo(link.id)}
+                  <a
+                    href={`#${link.id}`}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      scrollTo(link.id);
+                    }}
                     className="text-white/60 hover:text-accent transition-colors duration-300 flex items-center text-sm uppercase tracking-widest"
                   >
                     <span className="w-1.5 h-1.5 bg-white/20 rounded-full mr-3 group-hover:bg-accent"></span>
                     {link.label}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>
