@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Language } from "../types";
 import { content } from "../constants";
@@ -20,12 +20,11 @@ type HomePageProps = {
 
 export default function HomePage({ initialLang }: HomePageProps) {
   const router = useRouter();
-  const [lang, setLang] = useState<Language>(initialLang);
+  const lang = initialLang;
 
   const currentContent = useMemo(() => content[lang], [lang]);
 
   const handleSetLang = (nextLang: Language) => {
-    setLang(nextLang);
     router.push(`/${nextLang}`);
   };
 

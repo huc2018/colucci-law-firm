@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { debounce } from '../utils';
 import { ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -7,13 +8,13 @@ const ScrollToTop = () => {
 
   // Show button when page is scrolled down
   useEffect(() => {
-    const toggleVisibility = () => {
+    const toggleVisibility = debounce(() => {
       if (window.scrollY > 500) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
-    };
+    }, 10);
 
     window.addEventListener('scroll', toggleVisibility);
 

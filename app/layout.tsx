@@ -1,8 +1,30 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
+
+const localSansFont = localFont({
+  variable: "--font-sans",
+  display: "swap",
+  src: [
+    { path: "./fonts/NotoSansSC-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/NotoSansSC-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/NotoSansSC-Bold.woff2", weight: "700", style: "normal" },
+  ],
+});
+
+const localSerifFont = localFont({
+  variable: "--font-serif",
+  display: "swap",
+  src: [
+    { path: "./fonts/NotoSerifSC-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/NotoSerifSC-Medium.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/NotoSerifSC-SemiBold.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/NotoSerifSC-Bold.woff2", weight: "700", style: "normal" },
+  ],
+});
 
 const clarityAllowedHosts = ["coluccilawfirm.com", "www.coluccilawfirm.com"];
 
@@ -112,6 +134,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
+  const htmlFontClass = `${localSansFont.variable} ${localSerifFont.variable}`;
   const requestHeaders = await headers();
   const siteLang = requestHeaders.get("x-site-lang") || "zh-CN";
   const structuredData = {
@@ -225,7 +248,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   };
 
   return (
-    <html lang={siteLang}>
+    <html lang={siteLang} className={htmlFontClass}>
       <head>
         {/* 律师事务所 Schema.org 结构化数据，用于 Google 富结果和本地搜索 */}
         <script
@@ -233,7 +256,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="bg-white text-dark antialiased">
+      <body className="bg-white text-dark antialiased font-sans">
         <a href="#main-content" className="skip-link">
           Skip to main content / 跳转至主要内容
         </a>
