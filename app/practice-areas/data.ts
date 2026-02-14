@@ -21,6 +21,16 @@ type PracticeAreaDetail = {
   process: string[];
   noteTitle: string;
   note: string;
+  divorceDetail?: {
+    title: string;
+    intro: string;
+    focusTitle: string;
+    focusPoints: string[];
+    prepTitle: string;
+    prepChecklist: string[];
+    faqTitle: string;
+    faqs: Array<{ question: string; answer: string }>;
+  };
 };
 
 export const practiceAreaDetailContent: Record<
@@ -61,6 +71,45 @@ export const practiceAreaDetailContent: Record<
       ],
       noteTitle: "提示",
       note: "家庭案件通常同时涉及情绪和法律判断，建议尽早建立可执行、可落地的方案。",
+      divorceDetail: {
+        title: "新泽西协议离婚｜固定费用｜流程简明",
+        intro:
+          "双方已达成一致？离婚，也可以安静、清楚、体面地完成。我们专注协议离婚（无争议）案件，以固定费用、规范文件和高效流程帮助客户稳妥推进。",
+        focusTitle: "服务特点",
+        focusPoints: [
+          "仅限协议离婚（无争议）",
+          "固定费用，无隐藏收费",
+          "多数情况无需出庭",
+          "注重隐私，低调专业处理",
+          "文件准备规范、清晰、完整",
+          "流程高效，尽量节省时间",
+        ],
+        prepTitle: "服务项目",
+        prepChecklist: [
+          "基础无争议离婚：无子女、简单财产分配，起草并提交法院文件",
+          "涉及子女的离婚：未成年子女抚养安排及计算，起草并提交法院文件",
+          "资产复杂的离婚：房产、退休账户、商业权益等分配，定制婚姻财产协议",
+          "优先加急处理：加快起草与提交，优先沟通并安排日程",
+        ],
+        faqTitle: "常见问题",
+        faqs: [
+          {
+            question: "你们的费用是固定的吗？",
+            answer:
+              "是。固定费用将在咨询后，根据具体案件事实和复杂程度一次性明确，不做隐藏收费。",
+          },
+          {
+            question: "是不是所有离婚都适用这个服务？",
+            answer:
+              "不是。该服务定位于双方已达成一致的协议离婚（无争议）案件；存在重大争议时，通常需要改用诉讼路径。",
+          },
+          {
+            question: "是否一定要出庭？",
+            answer:
+              "多数协议离婚案件无需频繁出庭，但是否出庭仍取决于法院具体要求和案件情况。",
+          },
+        ],
+      },
     },
     "real-estate": {
       title: "房产事务",
@@ -165,6 +214,45 @@ export const practiceAreaDetailContent: Record<
       ],
       noteTitle: "Important Note",
       note: "Family matters involve both legal and personal pressure. A clear, enforceable plan is critical.",
+      divorceDetail: {
+        title: "New Jersey Uncontested Divorce | Flat Fee | Clear Process",
+        intro:
+          "If both parties have reached agreement, divorce can be handled quietly, clearly, and with dignity. We focus on uncontested divorce matters with flat-fee pricing and efficient document handling.",
+        focusTitle: "Service Highlights",
+        focusPoints: [
+          "Uncontested divorce only",
+          "Flat fee with no hidden charges",
+          "In many cases, no court appearance is required",
+          "Privacy-focused and discreet representation",
+          "Clear, complete, court-ready documentation",
+          "Efficient process designed to save time",
+        ],
+        prepTitle: "Service Scope",
+        prepChecklist: [
+          "Basic uncontested divorce: no minor children, simple property allocation, drafting and court filing",
+          "Divorce with children: parenting arrangements and support calculation, drafting and court filing",
+          "Complex-asset divorce: property, retirement accounts, business interests, tailored marital settlement agreement",
+          "Priority handling: accelerated drafting/filing preparation with prioritized communication and scheduling",
+        ],
+        faqTitle: "Frequently Asked Questions",
+        faqs: [
+          {
+            question: "Is your fee fixed?",
+            answer:
+              "Yes. The flat fee is confirmed after consultation based on case facts and complexity, with no hidden charges.",
+          },
+          {
+            question: "Does this service apply to every divorce case?",
+            answer:
+              "No. This service is designed for uncontested divorce matters where both parties already agree on key terms.",
+          },
+          {
+            question: "Will I need to appear in court?",
+            answer:
+              "Many uncontested cases can proceed with minimal appearances, but final requirements depend on court procedures and case details.",
+          },
+        ],
+      },
     },
     "real-estate": {
       title: "Real Estate",

@@ -4,6 +4,8 @@ import { headers } from "next/headers";
 import Script from "next/script";
 import "./globals.css";
 
+const clarityAllowedHosts = ["coluccilawfirm.com", "www.coluccilawfirm.com"];
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://coluccilawfirm.com"),
   title: {
@@ -239,10 +241,20 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         {process.env.NODE_ENV === "production" && (
           <Script id="ms-clarity" strategy="afterInteractive">
             {`
-              (function(c,l,a,r,i,t,y){
-                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              (function (c, l, a, r, i, t, y) {
+                if (!${JSON.stringify(clarityAllowedHosts)}.includes(window.location.hostname)) {
+                  return;
+                }
+                c[a] =
+                  c[a] ||
+                  function () {
+                    (c[a].q = c[a].q || []).push(arguments);
+                  };
+                t = l.createElement(r);
+                t.async = 1;
+                t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0];
+                y.parentNode.insertBefore(t, y);
               })(window, document, "clarity", "script", "vfszyvdgko");
             `}
           </Script>

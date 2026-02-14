@@ -73,12 +73,18 @@ export default async function PracticeAreaDetailPage({ params }: PageProps) {
       contact: "联系咨询",
       call: "电话咨询",
       email: "邮件咨询",
+      disclaimerTitle: "重要声明",
+      disclaimerText:
+        "本律师广告仅供参考信息使用，不构成法律建议。除非签署书面委托协议，否则不形成律师-客户关系。每个案件均基于具体事实，结果可能因情况而异。本所提供的有限范围代理服务，遵循《新泽西州职业行为规则》第1.2(c)条的规定。具体服务范围、费用及双方权利义务以签署的书面协议条款为准。",
     },
     en: {
       back: "Back to Home",
       contact: "Contact Us",
       call: "Call Us",
       email: "Email Us",
+      disclaimerTitle: "Important Disclaimer",
+      disclaimerText:
+        "This attorney advertising is for informational purposes only and does not constitute legal advice. No attorney-client relationship is formed unless a written engagement agreement is signed. Every case depends on specific facts, and outcomes may vary. Any limited-scope representation is provided in accordance with New Jersey Rule of Professional Conduct 1.2(c). The scope of services, fees, and respective rights and obligations are governed by the signed written agreement.",
     },
   }[lang];
 
@@ -148,6 +154,66 @@ export default async function PracticeAreaDetailPage({ params }: PageProps) {
             </ol>
           </article>
         </div>
+
+        {detail.divorceDetail && (
+          <section className="mt-8 bg-white rounded-sm border border-gray-200 p-8 shadow-sm">
+            <h2 className="text-3xl font-serif font-semibold text-primary">
+              {detail.divorceDetail.title}
+            </h2>
+            <p className="mt-4 text-dark/80 leading-relaxed">{detail.divorceDetail.intro}</p>
+
+            <div className="mt-8 grid gap-8 lg:grid-cols-2">
+              <article className="bg-neutral rounded-sm border border-gray-200 p-6">
+                <h3 className="text-xl font-serif font-semibold text-primary mb-4">
+                  {detail.divorceDetail.focusTitle}
+                </h3>
+                <ul className="space-y-3">
+                  {detail.divorceDetail.focusPoints.map((item) => (
+                    <li key={item} className="flex items-start text-dark/80">
+                      <span className="w-2 h-2 rounded-full bg-accent mt-2 mr-3 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+
+              <article className="bg-neutral rounded-sm border border-gray-200 p-6">
+                <h3 className="text-xl font-serif font-semibold text-primary mb-4">
+                  {detail.divorceDetail.prepTitle}
+                </h3>
+                <ol className="space-y-3">
+                  {detail.divorceDetail.prepChecklist.map((item, idx) => (
+                    <li key={item} className="flex items-start text-dark/80">
+                      <span className="text-accent font-bold mr-3 shrink-0">{idx + 1}.</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ol>
+              </article>
+            </div>
+
+            <article className="mt-8 bg-[#F8F4E8] border border-accent/30 rounded-sm p-6">
+              <h3 className="text-xl font-serif font-semibold text-primary mb-4">
+                {detail.divorceDetail.faqTitle}
+              </h3>
+              <div className="space-y-4">
+                {detail.divorceDetail.faqs.map((item) => (
+                  <div key={item.question}>
+                    <p className="font-semibold text-primary">{item.question}</p>
+                    <p className="mt-1 text-dark/80 leading-relaxed">{item.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
+
+            <article className="mt-8 bg-white border border-primary/20 rounded-sm p-6">
+              <h3 className="text-xl font-serif font-semibold text-primary mb-3">
+                {labels.disclaimerTitle}
+              </h3>
+              <p className="text-dark/80 leading-relaxed">{labels.disclaimerText}</p>
+            </article>
+          </section>
+        )}
 
         <article className="mt-8 bg-[#F8F4E8] border border-accent/30 rounded-sm p-8">
           <h2 className="text-2xl font-serif font-semibold text-primary mb-3">{detail.noteTitle}</h2>
