@@ -170,7 +170,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
         href={`#${id}`}
         onClick={(event) => onNavLinkClick(event, id)}
         aria-current={isActive ? "page" : undefined}
-        className="relative h-full px-4 xl:px-6 flex items-center justify-center group"
+        className="relative h-full px-2 lg:px-3 xl:px-4 2xl:px-6 flex items-center justify-center group"
       >
         {isActive && (
           <motion.div
@@ -185,8 +185,8 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
         )}
 
         <span 
-          className={`relative z-10 uppercase tracking-[0.2em] font-semibold transition-all duration-500 ${
-            isScrolled ? 'text-xs md:text-sm' : 'text-sm md:text-base'
+          className={`relative z-10 uppercase tracking-[0.18em] xl:tracking-[0.2em] font-semibold transition-all duration-500 ${
+            isScrolled ? 'text-[11px] xl:text-xs 2xl:text-sm' : 'text-xs xl:text-sm 2xl:text-base'
           } ${
             isActive 
               ? 'text-white scale-105' 
@@ -266,8 +266,8 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
              {/* Text Container - Unified Brand Name */}
              <span className={`font-serif font-bold text-white transition-all duration-700 tracking-wide whitespace-nowrap ${
                isScrolled 
-               ? 'text-base md:text-lg lg:text-xl' 
-               : 'text-lg md:text-xl lg:text-2xl'
+               ? 'text-base md:text-lg lg:text-lg 2xl:text-xl' 
+               : 'text-lg md:text-xl lg:text-xl 2xl:text-2xl'
              }`}>
                <span className="max-[436px]:hidden">COLUCCI LAW FIRM, P.C.</span>
                <span className="hidden max-[436px]:inline">COLUCCI LF, P.C.</span>
@@ -276,7 +276,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
         </a>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center h-full gap-2">
+        <div className="hidden lg:flex items-center h-full gap-1 xl:gap-2">
           <div className="flex items-center h-full">
             <NavLink id="practice" label={content.practice} />
             <NavLink id="attorney" label={content.attorney} />
@@ -284,13 +284,13 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
             <NavLink id="contact" label={content.contact} />
           </div>
 
-          <div className="h-12 w-px bg-white/10 mx-4 xl:mx-6"></div>
+          <div className="h-12 w-px bg-white/10 mx-2 xl:mx-4 2xl:mx-6"></div>
 
           <button
             onClick={toggleLang}
-            className="flex items-center gap-3 text-white/60 hover:text-accent transition-colors group px-4 py-2 rounded border border-transparent hover:border-white/10 hover:bg-white/5"
+            className="flex items-center gap-2 xl:gap-3 text-white/60 hover:text-accent transition-colors group px-2 xl:px-4 py-2 rounded border border-transparent hover:border-white/10 hover:bg-white/5"
           >
-            <Globe size={20} className="group-hover:rotate-180 transition-transform duration-700" />
+            <Globe size={18} className="group-hover:rotate-180 transition-transform duration-700" />
             <span className="text-xs font-bold tracking-[0.15em] uppercase">{lang === 'en' ? '中文' : 'English'}</span>
           </button>
         </div>
