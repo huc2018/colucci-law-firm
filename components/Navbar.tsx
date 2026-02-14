@@ -186,7 +186,7 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
         )}
 
         <span
-          className={`relative z-10 uppercase tracking-[0.18em] xl:tracking-[0.2em] font-semibold transition-all duration-500 ${isScrolled ? 'text-[11px] xl:text-xs 2xl:text-sm' : 'text-xs xl:text-sm 2xl:text-base'
+          className={`relative z-10 uppercase tracking-[0.18em] xl:tracking-[0.2em] font-semibold transition-all duration-500 ${isScrolled ? 'text-[11px] xl:text-sm 2xl:text-base' : 'text-sm xl:text-sm 2xl:text-base'
             } ${isActive
               ? 'text-white scale-105'
               : 'text-white/60 hover:text-accent'
@@ -229,8 +229,8 @@ const Navbar: React.FC<NavbarProps> = ({ lang, setLang, content }) => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-700 border-b ${isScrolled
-        ? 'bg-primary/95 backdrop-blur-xl border-white/10 h-20 md:h-24 shadow-2xl'
-        : 'bg-transparent border-transparent h-24 md:h-32'
+        ? 'bg-primary/95 backdrop-blur-xl border-white/10 h-20 md:h-22 shadow-2xl'
+        : 'bg-transparent border-transparent h-24 xl:h-30 2xl:h-32'
         }`}
     >
       <div className="container mx-auto px-4 md:px-8 h-full flex justify-between items-center">
