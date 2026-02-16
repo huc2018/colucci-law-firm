@@ -8,9 +8,9 @@ import "./globals.css";
 const localSansFont = localFont({
   variable: "--font-sans",
   display: "swap",
+  preload: false,
   src: [
     { path: "./fonts/NotoSansSC-Regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/NotoSansSC-Medium.woff2", weight: "500", style: "normal" },
     { path: "./fonts/NotoSansSC-Bold.woff2", weight: "700", style: "normal" },
   ],
 });
@@ -18,10 +18,9 @@ const localSansFont = localFont({
 const localSerifFont = localFont({
   variable: "--font-serif",
   display: "swap",
+  preload: false,
   src: [
     { path: "./fonts/NotoSerifSC-Regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/NotoSerifSC-Medium.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/NotoSerifSC-SemiBold.woff2", weight: "600", style: "normal" },
     { path: "./fonts/NotoSerifSC-Bold.woff2", weight: "700", style: "normal" },
   ],
 });
@@ -248,7 +247,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   };
 
   return (
-    <html lang={siteLang} className={htmlFontClass}>
+    <html lang={siteLang} className={htmlFontClass} suppressHydrationWarning>
       <head>
         {/* 律师事务所 Schema.org 结构化数据，用于 Google 富结果和本地搜索 */}
         <script

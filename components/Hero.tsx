@@ -10,21 +10,23 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ content }) => {
   const ref = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const { scrollY } = useScroll();
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    const syncIsDesktop = () => setIsDesktop(mediaQuery.matches);
+
+    syncIsDesktop();
+    mediaQuery.addEventListener('change', syncIsDesktop);
+    return () => mediaQuery.removeEventListener('change', syncIsDesktop);
   }, []);
   
   // Parallax effect: Background moves slower than foreground
   const yBg = useTransform(scrollY, [0, 1000], [0, 250]);
   const yText = useTransform(scrollY, [0, 500], [0, 120]);
   const opacityText = useTransform(scrollY, [0, 350], [1, 0]);
-  const isMotionSafe = !shouldReduceMotion && !isMobile;
+  const isMotionSafe = !shouldReduceMotion && isDesktop;
 
   return (
     <div ref={ref} id="hero" className="hero-mobile-landscape relative h-screen w-full overflow-hidden bg-dark flex items-center justify-center">
@@ -38,6 +40,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
           alt="Modern Law Firm Architecture"
           fill
           priority
+          unoptimized
           sizes="100vw"
           className="object-cover"
         />
@@ -51,7 +54,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
       <div className="hero-mobile-landscape-content relative container mx-auto px-6 z-10 flex flex-col items-start justify-center h-full -translate-y-6 md:translate-y-0">
         <motion.div 
           style={{ y: isMotionSafe ? yText : 0, opacity: isMotionSafe ? opacityText : 1 }}
-          initial={isMotionSafe ? { opacity: 0, x: -30 } : false}
+          initial={false}
           animate={isMotionSafe ? { opacity: 1, x: 0 } : false}
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="w-full"

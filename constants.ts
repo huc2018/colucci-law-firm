@@ -243,7 +243,7 @@ export const content: Record<"en" | "zh", Content> = {
       role: "首席律师",
       description:
         "资深经验：20 多年法律实践，深谙法律法规和诉讼策略。个性化服务：倾力亲为，细致处理每个案件。懂法律，更懂华人！",
-      quote: "疑难杂症专家，为您排忧解难",
+      quote: "疑难案件专家，为您排忧解难",
       image: "/images/attorney-colucci.jpg",
       badge: "关于本所",
       stats: {
@@ -289,7 +289,7 @@ export const content: Record<"en" | "zh", Content> = {
           desc: "英语/普通话/福州话/广东话助理，无语言障碍",
         },
         complex: {
-          title: "疑难杂症专家",
+          title: "疑难案件专家",
           desc: "擅长处理复杂案件，为您排忧解难",
         },
       },
