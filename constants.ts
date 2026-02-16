@@ -91,7 +91,7 @@ export const content: Record<"en" | "zh", Content> = {
       image: "/images/attorney-colucci.jpg",
       badge: "About The Firm",
       stats: {
-        years: "20+",
+        years: "25+",
         yearsLabel: "Years Experience",
         languages: "4",
         languagesLabel: "Languages Spoken",
@@ -112,7 +112,7 @@ export const content: Record<"en" | "zh", Content> = {
       quote:
         "Let every client who walks into our firm leave with a clearer direction and a more grounded heart.",
       firmName: "Colucci Law Firm, P.C.",
-      firmDesc: "NJ Local · Deeply Rooted in Chinese Community 20+ Years",
+      firmDesc: "NJ Local · Deeply Rooted in Chinese Community 25+ Years",
       firmSlogan:
         "We hope that when you face difficult decisions, you have a lawyer who truly thinks for you and speaks the truth by your side.",
       tags: [
@@ -247,7 +247,7 @@ export const content: Record<"en" | "zh", Content> = {
       image: "/images/attorney-colucci.jpg",
       badge: "关于本所",
       stats: {
-        years: "20+",
+        years: "25+",
         yearsLabel: "执业年限",
         languages: "4",
         languagesLabel: "服务语言",
@@ -267,7 +267,7 @@ export const content: Record<"en" | "zh", Content> = {
       quoteTitle: "一句话概括我们的愿景",
       quote: "让每一位走进本所的客户，都能带着更清晰的方向与更踏实的心情离开。",
       firmName: "Colucci Law Firm, P.C.",
-      firmDesc: "新泽西本地 · 深耕华人社区 20+ 年",
+      firmDesc: "新泽西本地 · 深耕华人社区 25+ 年",
       firmSlogan:
         "我们希望，当您面临最难做决定的时刻，身边有一位真正为您着想、并且讲真话的律师。",
       tags: ["律师亲自主把关", "清晰沟通", "结果导向"],

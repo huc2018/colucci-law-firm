@@ -39,16 +39,16 @@ const Footer: React.FC<FooterProps> = ({ content, nav, contact }) => {
 
   return (
     <footer ref={ref} className="bg-dark text-white border-t border-white/10 relative z-10 overflow-hidden">
-      
+
       {/* Parallax Background Element (Golden Glow) */}
-      <motion.div 
+      <motion.div
         style={{ y: yGlow, opacity: opacityGlow }}
         className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] bg-accent/20 rounded-full blur-[100px] pointer-events-none"
       />
 
       <SectionWrapper variant="fade" once={false} className="container mx-auto px-6 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-20">
-          
+
           {/* Column 1: Brand & Description */}
           <div className="space-y-6">
             <div>
@@ -96,11 +96,11 @@ const Footer: React.FC<FooterProps> = ({ content, nav, contact }) => {
             <ul className="space-y-4">
               <li className="flex items-start text-white/60 text-sm">
                 <Phone className="w-5 h-5 text-accent mr-3 mt-0.5 shrink-0" />
-                <span>{contact.phones.mandarin}<br/>{contact.phones.fuzhou}</span>
+                <span>{contact.phones.mandarin}<br />{contact.phones.fuzhou}</span>
               </li>
               <li className="flex items-start text-white/60 text-sm">
                 <MapPin className="w-5 h-5 text-accent mr-3 mt-0.5 shrink-0" />
-                <span>{contact.locations.edison}<br/>{contact.locations.tomsRiver}</span>
+                <span>{contact.locations.edison}<br />{contact.locations.tomsRiver}</span>
               </li>
               <li className="flex items-center text-white/60 text-sm">
                 <Mail className="w-5 h-5 text-accent mr-3 shrink-0" />
@@ -126,9 +126,9 @@ const Footer: React.FC<FooterProps> = ({ content, nav, contact }) => {
             {copyrightText}
           </p>
           <div className="flex items-center gap-4 opacity-30 grayscale hover:grayscale-0 transition-all duration-500">
-             {/* Decorative placeholder icons for social proof/trust */}
-             <div className="text-[10px] uppercase tracking-widest border border-white/50 px-2 py-1 rounded">NJ Bar Association</div>
-             <div className="text-[10px] uppercase tracking-widest border border-white/50 px-2 py-1 rounded">20+ Years</div>
+            {/* Decorative placeholder icons for social proof/trust */}
+            <div className="text-[10px] uppercase tracking-widest border border-white/50 px-2 py-1 rounded">NJ Bar Association</div>
+            <div className="text-[10px] uppercase tracking-widest border border-white/50 px-2 py-1 rounded">25+ Years</div>
           </div>
         </div>
       </div>

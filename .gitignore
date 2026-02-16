@@ -37,6 +37,7 @@ yarn-debug.log*
 # Editor
 .vscode/
 .idea/
+.claude/
 *.suo
 *.ntvs*
 *.njsproj
