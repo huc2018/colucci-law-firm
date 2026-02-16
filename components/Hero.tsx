@@ -59,12 +59,7 @@ const Hero: React.FC<HeroProps> = ({ content }) => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="w-full"
         >
-          <motion.div
-            initial={isMotionSafe ? { width: 0 } : false}
-            animate={isMotionSafe ? { width: "100px" } : false}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="h-1 bg-accent mb-8"
-          />
+          <div className="h-1 w-[100px] bg-accent mb-8" />
 
           <motion.h2
             initial={isMotionSafe ? { y: 10 } : false}
