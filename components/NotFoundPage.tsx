@@ -81,7 +81,7 @@ export default function NotFoundPage({ lang }: NotFoundPageProps) {
             {content.contact}
           </Link>
           <a
-            href="tel:+17326681420"
+            href="tel:+18482665888"
             className="inline-flex items-center rounded-sm border border-white/50 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
           >
             {content.call}

@@ -96,7 +96,7 @@ export default async function PracticeAreaDetailPage({ params }: PageProps) {
       "@type": "LegalService",
       name: "Colucci Law Firm, P.C.",
       url: baseUrl,
-      telephone: "+1-732-668-1420",
+      telephone: "+18482665888",
     },
     areaServed: "New Jersey, US",
     description: detail.summary,
@@ -224,14 +224,14 @@ export default async function PracticeAreaDetailPage({ params }: PageProps) {
           <h2 className="text-2xl font-serif font-semibold text-primary mb-5">{labels.contact}</h2>
           <div className="flex flex-wrap gap-4">
             <PhoneActionButton
-              phoneNumber="+17326681420"
+              phoneNumber="+18482665888"
               className="inline-flex items-center bg-primary text-white px-5 py-3 rounded-sm font-semibold hover:bg-primary/90 transition-colors"
               label={labels.call}
               copiedLabel={lang === "zh" ? "电话已复制" : "Phone copied"}
               copyFailedLabel={lang === "zh" ? "复制失败，请手动复制" : "Copy failed, please copy manually"}
             />
             <a
-              href="mailto:Jcoluccilaw@gmail.com"
+              href="mailto:Clients@coluccilawfirm.com"
               className="inline-flex items-center bg-accent text-primary px-5 py-3 rounded-sm font-semibold hover:bg-accent/90 transition-colors"
             >
               {labels.email}

@@ -150,12 +150,12 @@ export const content: Record<"en" | "zh", Content> = {
       priorityLineLabel: "Priority Line",
       callPriorityLabel: "Call Priority",
       phones: {
-        mandarin: "Ms. You: 732-668-1420 (Mandarin)",
+        mandarin: "Ms. You: 8482665888 (Mandarin)",
         fuzhou: "Mr. Huang: 732-325-7898 (Fuzhou/Cantonese)",
-        office: "Phone: 732-668-1420",
+        office: "Phone: 8482665888",
         fax: "Fax: 732-862-8888",
       },
-      email: "Email: Jcoluccilaw@gmail.com",
+      email: "Email: Clients@coluccilawfirm.com",
       hours: {
         weekday: "Mon - Fri: 9:00 AM - 5:30 PM",
         saturday: "Sat: 12:00 PM - 4:30 PM",
@@ -301,12 +301,12 @@ export const content: Record<"en" | "zh", Content> = {
       priorityLineLabel: "优先通道",
       callPriorityLabel: "拨打优先热线",
       phones: {
-        mandarin: "尤女士 732-668-1420 (普通话)",
+        mandarin: "尤女士 8482665888 (普通话)",
         fuzhou: "黄先生 732-325-7898 (福州话/粤语)",
-        office: "电话: 732-668-1420",
+        office: "电话: 8482665888",
         fax: "传真: 732-862-8888",
       },
-      email: "邮箱: Jcoluccilaw@gmail.com",
+      email: "邮箱: Clients@coluccilawfirm.com",
       hours: {
         weekday: "周一 - 周五: 9:00 AM - 5:30 PM",
         saturday: "周六: 12:00 PM - 4:30 PM",
