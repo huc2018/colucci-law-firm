@@ -30,7 +30,7 @@ async function resolveLastModified(): Promise<Date> {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://www.coluccilawfirm.com";
+  const baseUrl = "https://coluccilawfirm.com";
   const lastModified = await resolveLastModified();
 
   const languageRoutes = ["zh", "en"];
