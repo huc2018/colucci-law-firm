@@ -166,9 +166,15 @@ const Contact: React.FC<ContactProps> = ({ content }) => {
                   <Clock className="w-5 h-5 mr-4 text-accent" />
                   <div>
                     <span className="text-lg tracking-wide font-medium">{content.hours.weekday}</span> <br />
-                    <span className="text-lg tracking-wide font-medium">{content.hours.saturday}</span>
+                    <span className="text-lg tracking-wide font-medium">{content.hours.saturday}</span> <br />
+                    <span className="text-lg tracking-wide font-medium">{content.hours.sunday}</span>
                   </div>
 
+                </div>
+                <div className="bg-accent/10 border border-accent/30 rounded-sm p-4">
+                  <p className="text-sm md:text-base text-primary font-medium leading-relaxed">
+                    {content.hours.availabilityNote}
+                  </p>
                 </div>
               </div>
             </SectionWrapper>

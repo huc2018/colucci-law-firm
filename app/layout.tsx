@@ -142,7 +142,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     name: "Colucci Law Firm, P.C.",
     url: "https://coluccilawfirm.com",
     image: "https://coluccilawfirm.com/og/colucci-og.jpg",
-    telephone: "+18482665888", // 主热线（来自 contact.phones 和 office）
+    telephone: "+1848-266-5888", // 主热线（来自 contact.phones 和 office）
     email: "Clients@coluccilawfirm.com",
     address: [
       {

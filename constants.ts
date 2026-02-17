@@ -150,15 +150,18 @@ export const content: Record<"en" | "zh", Content> = {
       priorityLineLabel: "Priority Line",
       callPriorityLabel: "Call Priority",
       phones: {
-        mandarin: "Ms. You: 8482665888 (Mandarin)",
+        mandarin: "Ms. You: 848-266-5888 (Mandarin)",
         fuzhou: "Mr. Huang: 732-325-7898 (Fuzhou/Cantonese)",
-        office: "Phone: 8482665888",
+        office: "Phone: 848-266-5888",
         fax: "Fax: 732-862-8888",
       },
       email: "Email: Clients@coluccilawfirm.com",
       hours: {
-        weekday: "Mon - Fri: 9:00 AM - 5:30 PM",
-        saturday: "Sat: 12:00 PM - 4:30 PM",
+        weekday: "Mon – Fri: 9:00 AM – 5:30 PM",
+        saturday: "Sat: 12:00 PM – 4:30 PM",
+        sunday: "Sun: By appointment only",
+        availabilityNote:
+          "To ensure availability, please schedule an appointment prior to visiting.",
       },
       locations: {
         title: "Office Locations",
@@ -301,15 +304,17 @@ export const content: Record<"en" | "zh", Content> = {
       priorityLineLabel: "优先通道",
       callPriorityLabel: "拨打优先热线",
       phones: {
-        mandarin: "尤女士 8482665888 (普通话)",
+        mandarin: "尤女士 848-266-5888 (普通话)",
         fuzhou: "黄先生 732-325-7898 (福州话/粤语)",
-        office: "电话: 8482665888",
+        office: "电话: 848-266-5888",
         fax: "传真: 732-862-8888",
       },
       email: "邮箱: Clients@coluccilawfirm.com",
       hours: {
-        weekday: "周一 - 周五: 9:00 AM - 5:30 PM",
-        saturday: "周六: 12:00 PM - 4:30 PM",
+        weekday: "周一至周五: 9:00 AM – 5:30 PM",
+        saturday: "周六: 12:00 PM – 4:30 PM",
+        sunday: "周日: 仅限预约",
+        availabilityNote: "律师可能因出庭时间调整在岗安排，请提前预约。",
       },
       locations: {
         title: "办公室地址",

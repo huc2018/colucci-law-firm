@@ -85,6 +85,8 @@ export interface Content {
     hours: {
       weekday: string;
       saturday: string;
+      sunday: string;
+      availabilityNote: string;
     };
     locations: {
       title: string;

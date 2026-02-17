@@ -96,7 +96,7 @@ export default async function PracticeAreaDetailPage({ params }: PageProps) {
       "@type": "LegalService",
       name: "Colucci Law Firm, P.C.",
       url: baseUrl,
-      telephone: "+18482665888",
+      telephone: "+1848-266-5888",
     },
     areaServed: "New Jersey, US",
     description: detail.summary,
