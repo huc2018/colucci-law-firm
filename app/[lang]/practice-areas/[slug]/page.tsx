@@ -13,7 +13,7 @@ type PageProps = {
   params: Promise<{ lang: string; slug: string }>;
 };
 
-const baseUrl = "https://coluccilawfirm.com";
+const baseUrl = "https://www.coluccilawfirm.com";
 
 function isLanguage(value: string): value is Language {
   return value === "en" || value === "zh";

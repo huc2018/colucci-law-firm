@@ -28,7 +28,7 @@ const localSerifFont = localFont({
 const clarityAllowedHosts = ["coluccilawfirm.com", "www.coluccilawfirm.com"];
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://coluccilawfirm.com"),
+  metadataBase: new URL("https://www.coluccilawfirm.com"),
   title: {
     default: "Colucci Law Firm, P.C. 柯奇律师事务所 | 新泽西律师 / New Jersey Litigation, Family, Real Estate, Immigration & Injury Attorney",
     template: "%s | Colucci Law Firm, P.C. 柯奇律师事务所",
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
       "Colucci Law Firm, P.C. – New Jersey Litigation, Family, Real Estate, Immigration & Injury Attorney",
     description:
       "Bilingual English–Chinese law firm in New Jersey providing legal services in litigation and defense, family law, real estate, commercial business, immigration services, and injury claims.",
-    url: "https://coluccilawfirm.com",
+    url: "https://www.coluccilawfirm.com",
     siteName: "Colucci Law Firm, P.C.",
     images: [
       {
@@ -140,8 +140,8 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     "@context": "https://schema.org",
     "@type": "LegalService",
     name: "Colucci Law Firm, P.C.",
-    url: "https://coluccilawfirm.com",
-    image: "https://coluccilawfirm.com/og/colucci-og.jpg",
+    url: "https://www.coluccilawfirm.com",
+    image: "https://www.coluccilawfirm.com/og/colucci-og.jpg",
     telephone: "+1848-266-5888", // 主热线（来自 contact.phones 和 office）
     email: "Clients@coluccilawfirm.com",
     address: [

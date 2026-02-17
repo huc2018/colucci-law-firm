@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: current.title,
       description: current.description,
-      url: `https://coluccilawfirm.com${canonicalPath}`,
+      url: `https://www.coluccilawfirm.com${canonicalPath}`,
       type: "website",
       locale: current.locale,
       images: ["/og/colucci-og.jpg"],
